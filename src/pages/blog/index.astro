@@ -1,0 +1,73 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = (await getCollection('blog')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Layout title="Blog" description="Read the latest tips, tricks, and insights on how to learn languages effectively with Fluly.">
+  <div class="blog-header glow-purple">
+    <div class="container">
+      <h1>Language Learning Insights</h1>
+      <p>Expert tips, science-backed methods, and product updates from the Fluly team.</p>
+    </div>
+  </div>
+
+  <section class="blog-list">
+    <div class="container">
+      <div class="blog-grid">
+        {allPosts.map(post => (
+          <BlogCard 
+            title={post.data.title}
+            excerpt={post.data.excerpt}
+            slug={post.id}
+            date={post.data.date.toISOString()}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .blog-header {
+    padding: 6rem 0 4rem;
+    text-align: center;
+    border-bottom: 1px solid var(--color-detail-indigo);
+  }
+  
+  .blog-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .blog-header p {
+    font-size: 1.25rem;
+    color: #CBD5E1;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .blog-list {
+    background-color: var(--color-deep-indigo);
+  }
+  
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  
+  @media (max-width: 992px) {
+    .blog-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

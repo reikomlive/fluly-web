@@ -1,0 +1,224 @@
+---
+// Features.astro – Premium glassmorphism feature grid
+---
+
+<section class="features-section" id="features">
+  <div class="features-container">
+    <span class="section-label">Built for Results</span>
+    <h2 class="features-heading">
+      Everything you need to become fluent - nothing you don't
+    </h2>
+    <p class="features-subtitle">
+      Every feature in Fluly is engineered for one thing: getting you to fluency faster.
+    </p>
+
+    <div class="features-grid">
+      <!-- Card 1 – Lightning Fast Progress -->
+      <div class="feature-card">
+        <div class="icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13 2L4.09 12.11C3.68 12.59 3.48 12.84 3.48 13.05C3.48 13.23 3.56 13.4 3.69 13.51C3.85 13.65 4.17 13.65 4.82 13.65H12L11 22L19.91 11.89C20.32 11.41 20.52 11.16 20.52 10.95C20.52 10.77 20.44 10.6 20.31 10.49C20.15 10.35 19.83 10.35 19.18 10.35H12L13 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="card-title">Lightning Fast Progress</h3>
+        <p class="card-description">
+          Micro-lessons built around real conversation patterns so you make measurable progress in just five minutes a day.
+        </p>
+      </div>
+
+      <!-- Card 2 – 20+ Languages -->
+      <div class="feature-card">
+        <div class="icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/>
+            <ellipse cx="12" cy="12" rx="4" ry="10" stroke="white" stroke-width="2"/>
+            <path d="M2 12H22" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <path d="M4.5 7H19.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M4.5 17H19.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="card-title">20+ Languages</h3>
+        <p class="card-description">
+          From Spanish and French to Japanese and Arabic — explore a growing library of languages with native-quality audio.
+        </p>
+      </div>
+
+      <!-- Card 3 – Adaptive Learning -->
+      <div class="feature-card">
+        <div class="icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C9.24 2 7 4.24 7 7C7 8.8 7.88 10.37 9.24 11.3C9.24 11.3 6 12.5 6 16C6 17.1 6.9 18 8 18H16C17.1 18 18 17.1 18 16C18 12.5 14.76 11.3 14.76 11.3C16.12 10.37 17 8.8 17 7C17 4.24 14.76 2 12 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9 21H15" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <path d="M10 18V21" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <path d="M14 18V21" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="card-title">Adaptive Learning</h3>
+        <p class="card-description">
+          Smart spaced repetition powered by AI surfaces the right words at the right time, so nothing slips through the cracks.
+        </p>
+      </div>
+
+      <!-- Card 4 – Track Your Growth -->
+      <div class="feature-card">
+        <div class="icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 21V13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 21V8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 21V11" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M20 21V5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 3L16 5L20 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M20 3V5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="card-title">Track Your Growth</h3>
+        <p class="card-description">
+          Beautiful dashboards, streak stats, and milestone badges keep you motivated and show exactly how far you've come.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .features-section {
+    position: relative;
+    padding: 6rem 1.5rem;
+    background: linear-gradient(
+      180deg,
+      #1E1B4B 0%,
+      #252260 50%,
+      #1E1B4B 100%
+    );
+    overflow: hidden;
+  }
+
+  .features-container {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ── Eyebrow ── */
+  .section-label {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #A89DFF;
+    background: rgba(91, 82, 240, 0.15);
+    border: 1px solid rgba(91, 82, 240, 0.25);
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.25rem;
+  }
+
+  /* ── Heading ── */
+  .features-heading {
+    font-size: 2.75rem;
+    font-weight: 800;
+    line-height: 1.15;
+    color: #ffffff;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Subtitle ── */
+  .features-subtitle {
+    font-size: 1.1rem;
+    color: #94A3B8;
+    text-align: center;
+    max-width: 520px;
+    margin: 0 auto 3.5rem;
+    line-height: 1.65;
+  }
+
+  /* ── Grid ── */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  /* ── Card ── */
+  .feature-card {
+    background: rgba(45, 42, 110, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    padding: 2.25rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .feature-card:hover {
+    border-color: rgba(91, 82, 240, 0.3);
+    box-shadow: 0 0 24px rgba(91, 82, 240, 0.12), 0 8px 32px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+  }
+
+  /* ── Icon box ── */
+  .icon-box {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #5B52F0, #7C6FFF);
+    margin-bottom: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .icon-box svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* ── Card text ── */
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 0.5rem;
+    line-height: 1.3;
+  }
+
+  .card-description {
+    font-size: 0.95rem;
+    color: #94A3B8;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 680px) {
+    .features-section {
+      padding: 4rem 1.25rem;
+    }
+
+    .features-heading {
+      font-size: 2rem;
+    }
+
+    .features-subtitle {
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .feature-card {
+      padding: 1.75rem;
+    }
+  }
+</style>

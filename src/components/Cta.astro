@@ -1,0 +1,214 @@
+---
+// Cta.astro – Call-to-action block
+---
+
+<section class="cta-section">
+  <div class="cta-box">
+    <!-- Decorative floating orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+
+    <div class="cta-content">
+      <h2>Start Speaking a New Language Today</h2>
+      <p class="cta-subtitle">
+        Join thousands of learners building real fluency with bite-sized lessons powered by AI.
+      </p>
+      <div class="cta-buttons">
+        <a href="#" class="btn btn-accent">Download Free</a>
+        <a href="#features" class="btn btn-outline">View Features</a>
+      </div>
+      <p class="cta-note">Free on iOS • No credit card required</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ── Section wrapper ── */
+  .cta-section {
+    padding: 5rem 1.5rem;
+  }
+
+  /* ── The CTA card ── */
+  .cta-box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    padding: 5rem 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+
+    /* Layered background: radial glow on top of linear gradient */
+    background:
+      radial-gradient(
+        ellipse 50% 60% at 50% 45%,
+        rgba(168, 157, 255, 0.18) 0%,
+        transparent 70%
+      ),
+      linear-gradient(
+        105deg,
+        #5B52F0 0%,
+        #3D35A8 55%,
+        #1E1B4B 100%
+      );
+  }
+
+  /* ── Decorative floating orbs ── */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(60px);
+    opacity: 0.18;
+  }
+
+  .orb-1 {
+    width: 260px;
+    height: 260px;
+    background: #7C6FFF;
+    top: -80px;
+    left: -60px;
+    opacity: 0.22;
+  }
+
+  .orb-2 {
+    width: 180px;
+    height: 180px;
+    background: #A89DFF;
+    bottom: -50px;
+    right: -40px;
+    opacity: 0.16;
+  }
+
+  .orb-3 {
+    width: 120px;
+    height: 120px;
+    background: #D97706;
+    top: 30%;
+    right: 8%;
+    filter: blur(70px);
+    opacity: 0.12;
+  }
+
+  .orb-4 {
+    width: 90px;
+    height: 90px;
+    background: #7C6FFF;
+    bottom: 20%;
+    left: 12%;
+    filter: blur(50px);
+    opacity: 0.14;
+  }
+
+  /* ── Content layer (above orbs) ── */
+  .cta-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── Heading ── */
+  .cta-content h2 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    line-height: 1.15;
+    color: #ffffff;
+    max-width: 550px;
+    margin: 0 auto 1.25rem;
+  }
+
+  /* ── Subtitle ── */
+  .cta-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 450px;
+    margin: 0 auto;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+  }
+
+  /* ── Button row ── */
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 2rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Gold accent button */
+  .btn-accent {
+    background: #D97706;
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 20px rgba(217, 119, 6, 0.35);
+  }
+
+  .btn-accent:hover {
+    background: #b45309;
+    box-shadow: 0 6px 28px rgba(217, 119, 6, 0.45);
+  }
+
+  /* White outlined button */
+  .btn-outline {
+    background: transparent;
+    color: #ffffff;
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+  }
+
+  .btn-outline:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.7);
+  }
+
+  /* ── Muted helper text ── */
+  .cta-note {
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: 0.01em;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    .cta-box {
+      padding: 3.5rem 1.5rem;
+      border-radius: 18px;
+    }
+
+    .cta-content h2 {
+      font-size: 1.85rem;
+    }
+
+    .cta-subtitle {
+      font-size: 1rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn {
+      width: 100%;
+      max-width: 280px;
+    }
+  }
+</style>

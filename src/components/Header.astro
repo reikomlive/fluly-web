@@ -1,0 +1,164 @@
+---
+---
+<header class="site-header">
+  <div class="container header-content">
+    <a href="/" class="logo">Fluly</a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog">Blog</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="https://app.fluly.io/" class="btn btn-primary header-cta">View on Web</a>
+    </div>
+    <button class="mobile-menu-toggle" aria-label="Menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </div>
+</header>
+
+<style>
+  /* ── Sticky glassmorphism header ── */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(30, 27, 75, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 0.875rem 0;
+    transition: background-color 0.35s ease;
+  }
+
+  /* ── Layout ── */
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* ── Logo ── */
+  .logo {
+    position: relative;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.04em;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .logo::after {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: #D97706;
+    border-radius: 50%;
+    margin-left: 2px;
+    vertical-align: super;
+    position: relative;
+    top: -2px;
+  }
+
+  .logo:hover {
+    opacity: 0.85;
+  }
+
+  /* ── Navigation ── */
+  .main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .main-nav a {
+    position: relative;
+    color: #94A3B8;
+    font-weight: 500;
+    font-size: 0.925rem;
+    text-decoration: none;
+    padding-bottom: 4px;
+    transition: color 0.25s ease;
+  }
+
+  .main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 1.5px;
+    background-color: #ffffff;
+    transition: width 0.3s ease, left 0.3s ease;
+    border-radius: 1px;
+  }
+
+  .main-nav a:hover {
+    color: #ffffff;
+  }
+
+  .main-nav a:hover::after {
+    width: 100%;
+    left: 0;
+  }
+
+  /* ── Header CTA (smaller than page buttons) ── */
+  .header-actions {
+    display: flex;
+    align-items: center;
+  }
+
+  .header-cta {
+    font-size: 0.85rem;
+    padding: 0.6rem 1.4rem;
+  }
+
+  /* ── Mobile hamburger ── */
+  .mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .hamburger-line {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: #94A3B8;
+    border-radius: 2px;
+    transition: background-color 0.2s ease;
+  }
+
+  .mobile-menu-toggle:hover .hamburger-line {
+    background-color: #ffffff;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .main-nav {
+      display: none;
+    }
+
+    .header-actions {
+      display: none;
+    }
+
+    .mobile-menu-toggle {
+      display: flex;
+    }
+  }
+</style>

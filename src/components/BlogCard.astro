@@ -1,0 +1,97 @@
+---
+export interface Props {
+  title: string;
+  excerpt: string;
+  slug: string;
+  date: string;
+}
+
+const { title, excerpt, slug, date } = Astro.props;
+---
+<article class="blog-card">
+  <a href={`/blog/${slug}`} class="card-link">
+    <div class="card-image-placeholder">
+      <span>Fluly Blog</span>
+    </div>
+    <div class="card-content">
+      <time datetime={date}>{new Date(date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</time>
+      <h3>{title}</h3>
+      <p>{excerpt}</p>
+      <span class="read-more">Read article &rarr;</span>
+    </div>
+  </a>
+</article>
+
+<style>
+  .blog-card {
+    background-color: var(--color-detail-indigo);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .card-image-placeholder {
+    height: 200px;
+    background: linear-gradient(135deg, var(--color-brand-purple), var(--color-light-purple));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+  
+  .card-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  time {
+    font-size: 0.875rem;
+    color: var(--color-brand-gold);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: white;
+  }
+  
+  p {
+    font-size: 1rem;
+    color: #94A3B8;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .read-more {
+    color: var(--color-light-purple);
+    font-weight: 600;
+    margin-top: auto;
+  }
+</style>

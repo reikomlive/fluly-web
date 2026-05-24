@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "lingua-flowy"
+  },
+  "targets": {
+    "lingua-flowy": {
+      "hosting": {
+        "marketing": [
+          "fluly-marketing"
+        ],
+        "app": [
+          "fluly-app"
+        ]
+      }
+    }
+  }
+}
