@@ -1,0 +1,189 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Terms of Service">
+  <main class="policy-container">
+    <!-- Hero Section -->
+    <section class="policy-hero">
+      <div class="container">
+        <h1>Terms of Service</h1>
+        <p class="last-updated">Last Updated: May 22, 2026</p>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="policy-content">
+      <div class="container">
+        <div class="policy-text">
+          <h2>1. Acceptance of Terms</h2>
+          <p>
+            By accessing and using Fluly (the "Service"), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
+          </p>
+
+          <h2>2. Use License</h2>
+          <p>
+            Permission is granted to temporarily download one copy of the materials (information or software) on Fluly for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
+          </p>
+          <ul class="policy-list">
+            <li>Modify or copy the materials</li>
+            <li>Use the materials for any commercial purpose or for any public display</li>
+            <li>Attempt to decompile or reverse engineer any software contained on Fluly</li>
+            <li>Remove any copyright or other proprietary notations from the materials</li>
+            <li>Transfer the materials to another person or "mirror" the materials on any other server</li>
+            <li>Violate any applicable laws or regulations</li>
+          </ul>
+
+          <h2>3. Disclaimer</h2>
+          <p>
+            The materials on Fluly are provided on an 'as is' basis. Fluly makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
+          </p>
+
+          <h2>4. Limitations</h2>
+          <p>
+            In no event shall Fluly or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on Fluly.
+          </p>
+
+          <h2>5. Accuracy of Materials</h2>
+          <p>
+            The materials appearing on Fluly could include technical, typographical, or photographic errors. Fluly does not warrant that any of the materials on the Service are accurate, complete, or current. Fluly may make changes to the materials contained on the Service at any time without notice.
+          </p>
+
+          <h2>6. Materials and Content</h2>
+          <p>
+            Fluly does not control the content posted on the Service. That content may be offensive, harmful, inaccurate or otherwise inappropriate, or in some cases postings that have been mislabeled or deceptively labeled. You understand that by using the Service, you may be exposed to content that is offensive, indecent or objectionable. Under no circumstances will Fluly be liable in any way for any content, including, but not limited to any errors or omissions in any content, or any loss or damage of any kind incurred as a result of the use of any content.
+          </p>
+
+          <h2>7. Links</h2>
+          <p>
+            Fluly has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by Fluly of the site. Use of any such linked website is at the user's own risk.
+          </p>
+
+          <h2>8. Modifications</h2>
+          <p>
+            Fluly may revise these terms of service for the Service at any time without notice. By using the Service, you are agreeing to be bound by the then current version of these terms of service.
+          </p>
+
+          <h2>9. Governing Law</h2>
+          <p>
+            These terms and conditions are governed by and construed in accordance with the laws of the jurisdiction where Fluly operates, and you irrevocably submit to the exclusive jurisdiction of the courts in that location.
+          </p>
+
+          <h2>10. Contact Us</h2>
+          <p>
+            If you have any questions about these Terms of Service, please contact us at: <a href="mailto:reikomlive@gmail.com">reikomlive@gmail.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .policy-container {
+    background-color: #0a0520;
+    color: #e5e7eb;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Hero Section */
+  .policy-hero {
+    padding: 4rem 1.5rem;
+    text-align: center;
+    background: linear-gradient(135deg, #2d2a5f 0%, #1a0f3d 100%);
+    border-bottom: 1px solid rgba(168, 157, 255, 0.1);
+  }
+
+  .policy-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #a78bfa, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .last-updated {
+    font-size: 0.95rem;
+    color: #9ca3af;
+    margin: 0;
+  }
+
+  /* Content Section */
+  .policy-content {
+    padding: 4rem 1.5rem;
+  }
+
+  .policy-text {
+    line-height: 1.8;
+  }
+
+  .policy-text h2 {
+    font-size: 1.5rem;
+    color: #a78bfa;
+    margin: 2.5rem 0 1rem;
+    margin-top: 3rem;
+  }
+
+  .policy-text h2:first-child {
+    margin-top: 0;
+  }
+
+  .policy-text h3 {
+    font-size: 1.1rem;
+    color: #c4b5fd;
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  .policy-text p {
+    color: #d1d5db;
+    margin-bottom: 1rem;
+  }
+
+  .policy-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+
+  .policy-list li {
+    color: #d1d5db;
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .policy-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #a78bfa;
+  }
+
+  .policy-text a {
+    color: #a78bfa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .policy-text a:hover {
+    color: #c4b5fd;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .policy-hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .policy-text h2 {
+      font-size: 1.25rem;
+    }
+  }
+</style>

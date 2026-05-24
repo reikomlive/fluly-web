@@ -1,0 +1,200 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Privacy Policy">
+  <main class="policy-container">
+    <!-- Hero Section -->
+    <section class="policy-hero">
+      <div class="container">
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Last Updated: May 22, 2026</p>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="policy-content">
+      <div class="container">
+        <div class="policy-text">
+          <h2>1. Introduction</h2>
+          <p>
+            Fluly respects your privacy. This Privacy Policy explains what data we collect, how we use it, and your rights. By using the app, you agree to the collection and use of information as described in this policy.
+          </p>
+
+          <h2>2. Information We Collect</h2>
+          
+          <h3>Account Data</h3>
+          <p>
+            When you sign in via Google or Email, we collect your Name, Email Address, and Profile Picture. This data is used to create your account and save your progress across devices.
+          </p>
+
+          <h3>Learning Data</h3>
+          <p>
+            We track your completed lessons, quiz scores, daily streaks, and time spent learning to personalize your experience.
+          </p>
+
+          <h3>Device Data</h3>
+          <p>
+            We may collect your device model, operating system, and IP address for analytics and security purposes.
+          </p>
+
+          <h3>Payment Information</h3>
+          <p>
+            We do not collect, process, or store your credit card or banking details within the app. Payments are handled externally via third-party platforms (e.g., PayPal, Gumroad) or direct transfer. We only record the Access Code used to unlock your account.
+          </p>
+
+          <h2>3. Voice Data & Speech Recognition</h2>
+          <p>
+            Fluly uses your device's native speech recognition capabilities for pronunciation exercises.
+          </p>
+
+          <h3>Local Processing</h3>
+          <p>Your voice data is processed locally on your device.</p>
+
+          <h3>No Cloud Storage</h3>
+          <p>We do not upload, record, or store your voice recordings on our servers.</p>
+
+          <h2>4. How We Use Your Data</h2>
+          <ul class="policy-list">
+            <li><strong>To Provide the Service:</strong> Logging you in, syncing progress, and unlocking premium content.</li>
+            <li><strong>Analytics:</strong> We may use tools like Google Analytics for Firebase to understand how the app is used.</li>
+            <li><strong>Communication:</strong> We may use your email to send important updates regarding the app.</li>
+          </ul>
+
+          <h2>5. Third-Party Services</h2>
+          <p>
+            We share data with trusted third-party providers only when necessary to operate the app:
+          </p>
+          <ul class="policy-list">
+            <li><strong>Firebase (Google):</strong> For authentication, database storage, and hosting.</li>
+            <li><strong>YouTube:</strong> To stream video content.</li>
+          </ul>
+
+          <h2>6. Data Retention</h2>
+          <p>
+            We retain your account data for as long as your account is active. If you request account deletion, your personal data will be removed from our active databases.
+          </p>
+
+          <h2>7. Your Rights</h2>
+          <p>
+            You have the right to access, correct, or request deletion of your data. You can delete your account directly within the app settings or by contacting us.
+          </p>
+
+          <h2>8. Contact Us</h2>
+          <p>
+            If you have any questions, please contact us at: <a href="mailto:reikomlive@gmail.com">reikomlive@gmail.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .policy-container {
+    background-color: #0a0520;
+    color: #e5e7eb;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Hero Section */
+  .policy-hero {
+    padding: 4rem 1.5rem;
+    text-align: center;
+    background: linear-gradient(135deg, #2d2a5f 0%, #1a0f3d 100%);
+    border-bottom: 1px solid rgba(168, 157, 255, 0.1);
+  }
+
+  .policy-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #a78bfa, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .last-updated {
+    font-size: 0.95rem;
+    color: #9ca3af;
+    margin: 0;
+  }
+
+  /* Content Section */
+  .policy-content {
+    padding: 4rem 1.5rem;
+  }
+
+  .policy-text {
+    line-height: 1.8;
+  }
+
+  .policy-text h2 {
+    font-size: 1.5rem;
+    color: #a78bfa;
+    margin: 2.5rem 0 1rem;
+    margin-top: 3rem;
+  }
+
+  .policy-text h2:first-child {
+    margin-top: 0;
+  }
+
+  .policy-text h3 {
+    font-size: 1.1rem;
+    color: #c4b5fd;
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  .policy-text p {
+    color: #d1d5db;
+    margin-bottom: 1rem;
+  }
+
+  .policy-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+
+  .policy-list li {
+    color: #d1d5db;
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .policy-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #a78bfa;
+  }
+
+  .policy-text a {
+    color: #a78bfa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .policy-text a:hover {
+    color: #c4b5fd;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .policy-hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .policy-text h2 {
+      font-size: 1.25rem;
+    }
+  }
+</style>
