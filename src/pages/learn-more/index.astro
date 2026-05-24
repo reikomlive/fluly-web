@@ -1,0 +1,513 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Learn More">
+  <main class="learn-more-container">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <h1>Stop Studying. Start Experiencing.</h1>
+        <p class="lead">
+          Are you tired of endless grammar drills and boring textbooks? It's time to learn a new language the natural way - the same way you learned your first one.
+        </p>
+      </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro-section">
+      <div class="container">
+        <div class="intro-grid">
+          <div class="intro-card">
+            <h2>What is Fluly?</h2>
+            <p>
+              Fluly is the ultimate immersion tool that turns your favorite content into language lessons. Whether you want to polish up your French, understand anime in Japanese, or connect with your roots - with over 304+ languages, Fluly makes it effortless.
+            </p>
+            <p>
+              This app isn't only for language learning nerds. Use it simply to consume media in other languages, or even your own native language. <strong>The goal is to enjoy the process.</strong>
+            </p>
+          </div>
+
+          <div class="intro-card">
+            <h2>How It Works</h2>
+            <p>
+              Language learning is like planting a seed. You don't force a tree to grow - you give it the right conditions and let nature do the rest. Fluly works the same way.
+            </p>
+            <p>
+              Immerse yourself in real movies, books, and games. Practice speaking with real people. Review vocabulary with smart flashcards. <strong>Every lesson is a drop of water. Every conversation, a ray of sun.</strong>
+            </p>
+          </div>
+        </div>
+
+        <div class="mascot-section">
+          <h3>Meet Plum</h3>
+          <p>
+            Our mascot Plum isn't just cute - he represents what your learning becomes. <strong>Nutritious. Rooted. Fruitful.</strong>
+          </p>
+          <p class="cta-text">Plant your first lesson today.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Fluly Section -->
+    <section class="why-section">
+      <div class="container">
+        <h2>Why Fluly?</h2>
+        <p class="section-subtitle">
+          Most apps force you to use their content. We let you use <strong>YOURS.</strong> Import the movies, videos, and books you actually enjoy, and let our tools handle the rest.
+        </p>
+      </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="features-section">
+      <div class="container">
+        <h2>Key Features</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <h3>Import Any Content</h3>
+            <p>
+              Bring your own movies (with subtitles), YouTube videos, eBooks, and articles into the app. Learn from content that actually interests you.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3>Instant Definitions</h3>
+            <p>
+              Never interrupt your flow state. Tap any word in a video or book for an immediate translation and definition.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3>Story Mode with Cloze Fill</h3>
+            <p>
+              Sharpen your listening and comprehension skills through interactive story-based exercises.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3>Smart Flashcard System</h3>
+            <p>
+              Forget basic memorization. Our integrated Spaced Repetition System (SRS) works like Anki but is built directly into your content player. We track what you know and remind you of words exactly when you're about to forget them.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3>Championing African Languages</h3>
+            <p>
+              We proudly support over 80 African languages, bridging the gap that most major language apps ignore.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Supported Modes Section -->
+    <section class="modes-section">
+      <div class="container">
+        <h2>Supported Modes</h2>
+        <div class="modes-list">
+          <div class="mode-item">
+            <span class="mode-icon">🎬</span>
+            <p>Video Player with interactive subtitles</p>
+          </div>
+          <div class="mode-item">
+            <span class="mode-icon">📖</span>
+            <p>eBook Reader with instant lookup</p>
+          </div>
+          <div class="mode-item">
+            <span class="mode-icon">✍️</span>
+            <p>Cloze fill comprehension exercises</p>
+          </div>
+          <div class="mode-item">
+            <span class="mode-icon">🎯</span>
+            <p>Flashcard Review</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Note Section -->
+    <section class="note-section">
+      <div class="container">
+        <div class="note-box">
+          <p>
+            <strong>Previously known as LinguaFlow</strong> - same app, same progress, fresh new name. Your account and lessons are fully intact.
+          </p>
+          <p class="highlight">
+            Download Fluly today and reach fluency faster by doing what you love.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="final-cta">
+      <div class="container">
+        <h2>Ready to Start Learning?</h2>
+        <div class="cta-buttons">
+          <a href="#" class="btn btn-accent">Download on App Store</a>
+          <a href="#" class="btn btn-accent">Download on Android</a>
+        </div>
+        <p class="terms">
+          <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
+        </p>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .learn-more-container {
+    background-color: #0a0520;
+    color: #e5e7eb;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding: 6rem 1.5rem;
+    text-align: center;
+    background: linear-gradient(135deg, #2d2a5f 0%, #1a0f3d 100%);
+    border-bottom: 1px solid rgba(168, 157, 255, 0.1);
+  }
+
+  .hero-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #a78bfa, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #d1d5db;
+    line-height: 1.8;
+  }
+
+  /* Intro Section */
+  .intro-section {
+    padding: 5rem 1.5rem;
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .intro-card {
+    background: rgba(168, 157, 255, 0.05);
+    border: 1px solid rgba(168, 157, 255, 0.1);
+    border-radius: 16px;
+    padding: 2.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .intro-card:hover {
+    background: rgba(168, 157, 255, 0.1);
+    border-color: rgba(168, 157, 255, 0.2);
+  }
+
+  .intro-card h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: #c4b5fd;
+  }
+
+  .intro-card p {
+    line-height: 1.8;
+    color: #d1d5db;
+    margin-bottom: 1rem;
+  }
+
+  .intro-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .mascot-section {
+    text-align: center;
+    padding: 3rem;
+    background: rgba(124, 58, 237, 0.05);
+    border-radius: 16px;
+    border: 1px solid rgba(168, 157, 255, 0.1);
+  }
+
+  .mascot-section h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #c4b5fd;
+  }
+
+  .mascot-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #d1d5db;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-text {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #a78bfa;
+  }
+
+  /* Why Section */
+  .why-section {
+    padding: 5rem 1.5rem;
+    background: linear-gradient(135deg, rgba(45, 42, 95, 0.3) 0%, rgba(26, 15, 61, 0.3) 100%);
+    text-align: center;
+    border-bottom: 1px solid rgba(168, 157, 255, 0.1);
+  }
+
+  .why-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #a78bfa;
+  }
+
+  .section-subtitle {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+    color: #d1d5db;
+  }
+
+  /* Features Section */
+  .features-section {
+    padding: 5rem 1.5rem;
+  }
+
+  .features-section h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #a78bfa;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .feature-card {
+    background: rgba(168, 157, 255, 0.05);
+    border: 1px solid rgba(168, 157, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .feature-card:hover {
+    background: rgba(168, 157, 255, 0.1);
+    border-color: rgba(168, 157, 255, 0.2);
+    transform: translateY(-4px);
+  }
+
+  .feature-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #c4b5fd;
+  }
+
+  .feature-card p {
+    line-height: 1.7;
+    color: #d1d5db;
+    margin: 0;
+  }
+
+  /* Modes Section */
+  .modes-section {
+    padding: 5rem 1.5rem;
+    background: linear-gradient(135deg, rgba(45, 42, 95, 0.3) 0%, rgba(26, 15, 61, 0.3) 100%);
+  }
+
+  .modes-section h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #a78bfa;
+  }
+
+  .modes-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .mode-item {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: rgba(168, 157, 255, 0.05);
+    border: 1px solid rgba(168, 157, 255, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .mode-item:hover {
+    background: rgba(168, 157, 255, 0.1);
+    border-color: rgba(168, 157, 255, 0.2);
+  }
+
+  .mode-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .mode-item p {
+    line-height: 1.6;
+    color: #d1d5db;
+    margin: 0;
+  }
+
+  /* Note Section */
+  .note-section {
+    padding: 5rem 1.5rem;
+  }
+
+  .note-box {
+    max-width: 800px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(99, 102, 241, 0.05) 100%);
+    border: 2px solid rgba(168, 157, 255, 0.2);
+    border-radius: 16px;
+    padding: 3rem;
+    text-align: center;
+  }
+
+  .note-box p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #d1d5db;
+    margin-bottom: 1.5rem;
+  }
+
+  .note-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .highlight {
+    color: #a78bfa;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+
+  /* Final CTA Section */
+  .final-cta {
+    padding: 5rem 1.5rem;
+    text-align: center;
+    background: linear-gradient(135deg, #2d2a5f 0%, #1a0f3d 100%);
+    border-top: 1px solid rgba(168, 157, 255, 0.1);
+  }
+
+  .final-cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, #a78bfa, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  .btn-accent {
+    background: linear-gradient(135deg, #7c3aed, #a855f7);
+    color: white;
+    border: none;
+  }
+
+  .btn-accent:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: #a78bfa;
+    border: 2px solid #a78bfa;
+  }
+
+  .btn-outline:hover {
+    background: rgba(168, 157, 255, 0.1);
+    border-color: #c4b5fd;
+  }
+
+  .terms {
+    margin-top: 1rem;
+  }
+
+  .terms a {
+    color: #a78bfa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .terms a:hover {
+    color: #c4b5fd;
+    text-decoration: underline;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero-section h1 {
+      font-size: 2rem;
+    }
+
+    .lead {
+      font-size: 1rem;
+    }
+
+    .intro-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .features-section h2,
+    .why-section h2,
+    .modes-section h2,
+    .final-cta h2 {
+      font-size: 1.75rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+</style>
