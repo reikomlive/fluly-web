@@ -6,10 +6,44 @@ import Footer from '../components/Footer.astro';
 export interface Props {
 	title: string;
 	description?: string;
+	isBlogPost?: boolean;
+	publishDate?: Date;
+	excerpt?: string;
+	slug?: string;
 }
 
-const { title, description = "Fluly - Learn a Language faster than traditional methods. Fast results and efficiency." } = Astro.props;
+const { 
+	title, 
+	description = "Fluly - Learn a Language faster than traditional methods. Fast results and efficiency.",
+	isBlogPost = false,
+	publishDate,
+	excerpt,
+	slug
+} = Astro.props;
 const siteTitle = `${title} | Fluly`;
+const blogPostUrl = isBlogPost && slug ? `https://fluly.io/blog/${slug}` : null;
+const publishDateISO = publishDate?.toISOString() || null;
+
+// BlogPosting schema data
+const blogPostingSchema = isBlogPost && blogPostUrl && publishDateISO ? {
+	"@context": "https://schema.org",
+	"@type": "BlogPosting",
+	"headline": title,
+	"description": excerpt || description,
+	"image": "https://fluly.io/images/fluly-home-lessons.webp",
+	"datePublished": publishDateISO,
+	"url": blogPostUrl,
+	"author": {
+		"@type": "Organization",
+		"name": "Fluly",
+		"url": "https://fluly.io"
+	},
+	"publisher": {
+		"@type": "Organization",
+		"name": "Fluly",
+		"url": "https://fluly.io"
+	}
+} : null;
 ---
 
 <!DOCTYPE html>
@@ -33,6 +67,35 @@ const siteTitle = `${title} | Fluly`;
 		<meta property="twitter:url" content={Astro.url} />
 		<meta property="twitter:title" content={siteTitle} />
 		<meta property="twitter:description" content={description} />
+
+		<!-- Schema.org SoftwareApplication -->
+		<script type="application/ld+json">
+		{
+		  "@context": "https://schema.org",
+		  "@type": "SoftwareApplication",
+		  "name": "Fluly",
+		  "operatingSystem": "iOS, Android, Web",
+		  "applicationCategory": "EducationApplication",
+		  "description": "Learn any language through real movies, books and podcasts using the immersion method",
+		  "url": "https://fluly.io",
+		  "image": "https://fluly.io/images/fluly-home-lessons.webp",
+		  "screenshot": [
+		    "https://fluly.io/images/fluly-home-lessons.webp",
+		    "https://fluly.io/images/instant-definitions.webp",
+		    "https://fluly.io/images/practice-speaking.webp",
+		    "https://fluly.io/images/vocabulary-quiz.webp"
+		  ],
+		  "offers": {
+		    "@type": "Offer",
+		    "price": "0",
+		    "priceCurrency": "USD"
+		  }
+		}
+		</script>
+
+		{blogPostingSchema && (
+			<script type="application/ld+json" set:html={JSON.stringify(blogPostingSchema)} />
+		)}
 	</head>
 	<body>
 		<Header />

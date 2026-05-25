@@ -1,0 +1,440 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Features">
+  <main class="features-container">
+
+
+    <!-- Why Fluly Section -->
+    <section class="why-section">
+      <div class="container">
+        <h1>Why Fluly?</h1>
+        <p class="section-subtitle">
+          Most apps force you to use their content. We let you use <strong>YOURS.</strong> Import the movies, videos, and books you actually enjoy, and let our tools handle the rest.
+          Everything you need to learn languages naturally through immersion.
+        </p>
+        </p>
+      </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="key-features">
+      <div class="container">
+        <h2>Key Features</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-header">
+              <h3>Import Any Content</h3>
+            </div>
+            <p>
+              Bring your own movies (with subtitles), YouTube videos, eBooks, and articles into the app. Learn from content that actually interests you.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-header">
+              <h3>Instant Definitions</h3>
+            </div>
+            <p>
+              Never interrupt your flow state. Tap any word in a video or book for an immediate translation and definition.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-header">
+              <h3>Story Mode with Cloze Fill</h3>
+            </div>
+            <p>
+              Sharpen your listening and comprehension skills through interactive story-based exercises.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-header">
+              <h3>Smart Flashcard System</h3>
+            </div>
+            <p>
+              Forget basic memorization. Our integrated Spaced Repetition System (SRS) works like Anki but is built directly into your content player. We track what you know and remind you of words exactly when you're about to forget them.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-header">
+              <h3>Championing African Languages</h3>
+            </div>
+            <p>
+              We proudly support over 80 African languages, bridging the gap that most major language apps ignore.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-header">
+              <h3>304+ Languages Supported</h3>
+            </div>
+            <p>
+              Whether you want to polish up your French, understand anime in Japanese, or connect with your roots — Fluly supports the languages you want to learn.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Supported Modes -->
+    <section class="supported-modes">
+      <div class="container">
+        <h2>Supported Modes</h2>
+        <div class="modes-grid">
+          <div class="mode-card">
+            <h3>Video Player</h3>
+            <p>Interactive subtitles with instant lookup. Watch content in your target language without interruption.</p>
+          </div>
+
+          <div class="mode-card">
+            <h3>eBook Reader</h3>
+            <p>Tap any word for instant translation and definition. Learn vocabulary in context as you read.</p>
+          </div>
+
+          <div class="mode-card">
+            <h3>Cloze Fill Exercises</h3>
+            <p>Interactive comprehension exercises that sharpen your listening and understanding skills.</p>
+          </div>
+
+          <div class="mode-card">
+            <h3>Flashcard Review</h3>
+            <p>Smart spaced repetition for vocabulary retention. Review at the optimal time to move knowledge to long-term memory.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+      <div class="container">
+        <h2>How Fluly Works</h2>
+        <div class="steps-grid">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Import Your Content</h3>
+            <p>Choose movies, videos, books, or articles you actually enjoy learning from.</p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Learn While Watching</h3>
+            <p>Tap words for instant definitions and listen to native pronunciation without interruption.</p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Smart Review</h3>
+            <p>Our algorithm tracks what you know and prompts reviews exactly when you're about to forget.</p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">4</div>
+            <h3>Reach Fluency</h3>
+            <p>Build real language skills through immersion with content you love. No boring drills.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="features-cta">
+      <div class="container">
+        <h2>Ready to Start Learning?</h2>
+        <p>Experience the natural way to learn languages through immersion.</p>
+        <div class="cta-buttons">
+          <a href="https://apps.apple.com/vn/app/linguaflow-learn-a-language/id6758226008" class="btn btn-accent">Download on App Store</a>
+          <a href="#" class="btn btn-accent">Download on Android</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .features-container {
+    background-color: #0a0520;
+    color: #e5e7eb;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Hero Section */
+  .features-hero {
+    padding: 6rem 1.5rem;
+    text-align: center;
+    background: linear-gradient(135deg, #2d2a5f 0%, #1a0f3d 100%);
+    border-bottom: 1px solid rgba(168, 157, 255, 0.1);
+  }
+
+  .features-hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #a78bfa, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #d1d5db;
+    line-height: 1.8;
+  }
+
+  /* Why Section */
+  .why-section {
+    padding: 5rem 1.5rem;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(45, 42, 95, 0.3) 0%, rgba(26, 15, 61, 0.3) 100%);
+    border-bottom: 1px solid rgba(168, 157, 255, 0.1);
+  }
+
+  .why-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #a78bfa;
+  }
+
+  .section-subtitle {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+    color: #d1d5db;
+  }
+
+  /* Key Features Section */
+  .key-features {
+    padding: 5rem 1.5rem;
+  }
+
+  .key-features h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #a78bfa;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .feature-card {
+    background: rgba(168, 157, 255, 0.05);
+    border: 1px solid rgba(168, 157, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .feature-card:hover {
+    background: rgba(168, 157, 255, 0.1);
+    border-color: rgba(168, 157, 255, 0.2);
+    transform: translateY(-4px);
+  }
+
+  .feature-header {
+    margin-bottom: 1rem;
+  }
+
+  .feature-card h3 {
+    font-size: 1.3rem;
+    color: #c4b5fd;
+    margin: 0;
+  }
+
+  .feature-card p {
+    color: #d1d5db;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* Supported Modes */
+  .supported-modes {
+    padding: 5rem 1.5rem;
+    background: linear-gradient(135deg, rgba(45, 42, 95, 0.3) 0%, rgba(26, 15, 61, 0.3) 100%);
+    border-top: 1px solid rgba(168, 157, 255, 0.1);
+  }
+
+  .supported-modes h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #a78bfa;
+  }
+
+  .modes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .mode-card {
+    background: rgba(168, 157, 255, 0.05);
+    border: 1px solid rgba(168, 157, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .mode-card:hover {
+    background: rgba(168, 157, 255, 0.1);
+    border-color: rgba(168, 157, 255, 0.2);
+  }
+
+  .mode-card h3 {
+    font-size: 1.2rem;
+    color: #c4b5fd;
+    margin-bottom: 1rem;
+  }
+
+  .mode-card p {
+    color: #d1d5db;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* How It Works */
+  .how-it-works {
+    padding: 5rem 1.5rem;
+  }
+
+  .how-it-works h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #a78bfa;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .step {
+    background: rgba(168, 157, 255, 0.05);
+    border: 1px solid rgba(168, 157, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #7c3aed, #a855f7);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .step h3 {
+    font-size: 1.2rem;
+    color: #c4b5fd;
+    margin-bottom: 1rem;
+  }
+
+  .step p {
+    color: #d1d5db;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* CTA Section */
+  .features-cta {
+    padding: 5rem 1.5rem;
+    text-align: center;
+    background: linear-gradient(135deg, #2d2a5f 0%, #1a0f3d 100%);
+    border-top: 1px solid rgba(168, 157, 255, 0.1);
+  }
+
+  .features-cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #a78bfa, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .features-cta p {
+    font-size: 1.1rem;
+    color: #d1d5db;
+    margin-bottom: 2rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  .btn-accent {
+    background: linear-gradient(135deg, #7c3aed, #a855f7);
+    color: white;
+    border: none;
+  }
+
+  .btn-accent:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .features-hero h1 {
+      font-size: 2rem;
+    }
+
+    .lead {
+      font-size: 1rem;
+    }
+
+    .key-features h2,
+    .supported-modes h2,
+    .how-it-works h2,
+    .features-cta h2 {
+      font-size: 1.75rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+</style>
