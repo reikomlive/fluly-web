@@ -4,11 +4,28 @@ import Hero from '../components/Hero.astro';
 import Features from '../components/Features.astro';
 import BlogCard from '../components/BlogCard.astro';
 import Cta from '../components/Cta.astro';
+import type { ImageMetadata } from 'astro';
 
 import { getCollection } from 'astro:content';
 
 const allPosts = await getCollection('blog');
 const recentPosts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3);
+
+// Import all images from blog folders
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/content/blog/*/*.{webp,png,jpg,jpeg,svg}',
+  { eager: true }
+);
+
+// Helper function to get first image for a post
+function getPostImage(slug: string) {
+  // Find all images for this post
+  const postImages = Object.keys(images)
+    .filter(key => key.includes(`/src/content/blog/${slug}/`))
+    .sort(); // Sort to get consistent first image
+  
+  return postImages.length > 0 ? images[postImages[0]].default : undefined;
+}
 ---
 
 <Layout title="Learn any Language Fast & Free | Immersion Method">
@@ -29,6 +46,7 @@ const recentPosts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.
             excerpt={post.data.excerpt}
             slug={post.id}
             date={post.data.date.toISOString()}
+            image={getPostImage(post.id)}
           />
         ))}
       </div>

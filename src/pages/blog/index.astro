@@ -2,8 +2,25 @@
 import Layout from '../../layouts/Layout.astro';
 import BlogCard from '../../components/BlogCard.astro';
 import { getCollection } from 'astro:content';
+import type { ImageMetadata } from 'astro';
 
 const allPosts = (await getCollection('blog')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+// Import all images from blog folders
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/content/blog/*/*.{webp,png,jpg,jpeg,svg}',
+  { eager: true }
+);
+
+// Helper function to get first image for a post
+function getPostImage(slug: string) {
+  // Find all images for this post
+  const postImages = Object.keys(images)
+    .filter(key => key.includes(`/src/content/blog/${slug}/`))
+    .sort(); // Sort to get consistent first image
+  
+  return postImages.length > 0 ? images[postImages[0]].default : undefined;
+}
 ---
 
 <Layout title="Blog" description="Read the latest tips, tricks, and insights on how to learn languages effectively with Fluly.">
@@ -23,6 +40,7 @@ const allPosts = (await getCollection('blog')).sort((a, b) => b.data.date.valueO
             excerpt={post.data.excerpt}
             slug={post.id}
             date={post.data.date.toISOString()}
+            image={getPostImage(post.id)}
           />
         ))}
       </div>

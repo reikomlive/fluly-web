@@ -107,6 +107,25 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', { month: 'long'
   .post-content :global(li) {
     margin-bottom: 0.5rem;
   }
+
+  /* Image styles */
+  .post-content :global(img) {
+    width: 100%;
+    border-radius: 12px;
+    margin: 2rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .post-content :global(figure) {
+    margin: 2rem 0;
+  }
+
+  .post-content :global(figcaption) {
+    text-align: center;
+    font-size: 0.875rem;
+    color: #64748B;
+    margin-top: 0.5rem;
+  }
   
   @media (max-width: 768px) {
     .post-header h1 {

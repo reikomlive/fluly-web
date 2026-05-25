@@ -8,6 +8,8 @@ Learning a new language is a thrilling journey, but it can also be frustrating i
 
 ## 1. Embrace Immersion
 You don't need to move to another country to immerse yourself. Change your phone's language, listen to foreign podcasts, and watch movies without subtitles. The goal is to maximize your exposure.
+![How immersion works](./immersion.webp)
+*Learning through real-world content*
 
 ## 2. Leverage Spaced Repetition
 Our brains are wired to forget. Spaced repetition systems (SRS) solve this by prompting you to review material just as you're about to forget it. This is a core component of how Fluly works.
