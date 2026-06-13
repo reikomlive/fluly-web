@@ -10,6 +10,17 @@ const blogCollection = defineCollection({
   })
 });
 
+const communityCollection = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/community" }),
+  schema: z.object({
+    title: z.string(),
+    language: z.string(),
+    whatsappLink: z.string().optional(),
+    description: z.string().optional(),
+  })
+});
+
 export const collections = {
   'blog': blogCollection,
+  'community': communityCollection,
 };

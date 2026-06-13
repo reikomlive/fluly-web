@@ -21,8 +21,14 @@ const {
 	slug
 } = Astro.props;
 const siteTitle = `${title} | Fluly`;
-const blogPostUrl = isBlogPost && slug ? `https://fluly.io/blog/${slug}` : null;
+const blogPostUrl = isBlogPost && slug ? (slug.startsWith('/') ? `https://fluly.io${slug}` : `https://fluly.io/blog/${slug}`) : null;
 const publishDateISO = publishDate?.toISOString() || null;
+
+let canonicalPath = Astro.url.pathname;
+if (canonicalPath.length > 1 && canonicalPath.endsWith('/')) {
+	canonicalPath = canonicalPath.slice(0, -1);
+}
+const canonicalURL = new URL(canonicalPath, Astro.site).href;
 
 // BlogPosting schema data
 const blogPostingSchema = isBlogPost && blogPostUrl && publishDateISO ? {
@@ -55,6 +61,7 @@ const blogPostingSchema = isBlogPost && blogPostUrl && publishDateISO ? {
 		<meta name="generator" content={Astro.generator} />
 		<title>{siteTitle}</title>
 		<meta name="description" content={description} />
+		<link rel="canonical" href={canonicalURL} />
 		
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />

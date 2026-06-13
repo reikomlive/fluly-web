@@ -12,6 +12,19 @@ export async function GET() {
     { url: '/privacy', lastmod: new Date().toISOString() },
     { url: '/terms', lastmod: new Date().toISOString() },
     { url: '/cookies', lastmod: new Date().toISOString() },
+    { url: '/learn', lastmod: new Date().toISOString() },
+    { url: '/learn/french', lastmod: new Date().toISOString() },
+    { url: '/learn/french/immersion-guide', lastmod: new Date().toISOString() },
+    { url: '/learn/french/common-mistakes', lastmod: new Date().toISOString() },
+    { url: '/learn/french/resources', lastmod: new Date().toISOString() },
+    { url: '/learn/spanish', lastmod: new Date().toISOString() },
+    { url: '/learn/spanish/immersion-guide', lastmod: new Date().toISOString() },
+    { url: '/learn/spanish/common-mistakes', lastmod: new Date().toISOString() },
+    { url: '/learn/spanish/resources', lastmod: new Date().toISOString() },
+    { url: '/learn/german', lastmod: new Date().toISOString() },
+    { url: '/learn/german/immersion-guide', lastmod: new Date().toISOString() },
+    { url: '/learn/german/common-mistakes', lastmod: new Date().toISOString() },
+    { url: '/learn/german/resources', lastmod: new Date().toISOString() },
   ];
 
   // Add blog posts

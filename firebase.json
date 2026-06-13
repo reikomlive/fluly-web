@@ -3,6 +3,8 @@
     {
       "site": "fluuuly",
       "public": "dist",
+      "cleanUrls": true,
+      "trailingSlash": false,
       "ignore": [
         "firebase.json",
         "**/.*",
@@ -12,6 +14,7 @@
     {
       "target": "app",
       "public": "build/web",
+      "trailingSlash": false,
       "ignore": [
         "firebase.json",
         "**/.*",

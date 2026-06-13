@@ -1,0 +1,119 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Cta from '../../components/Cta.astro';
+
+const title = "Learn Languages Through Immersion";
+const description = "Choose a language and discover how to achieve fluency faster through the immersion method. Stop studying textbooks and start experiencing.";
+---
+
+<Layout title={title} description={description} isBlogPost={false} slug="/learn">
+  <article class="blog-post">
+    <header class="post-header glow-purple">
+      <div class="container post-container">
+        <h1>{title}</h1>
+        <p style="color: #94A3B8; font-size: 1.2rem; margin-top: 1rem;">
+          Select a language below to access tailored immersion guides, resources, and common pitfalls to avoid. More languages are added regularly!
+        </p>
+      </div>
+    </header>
+
+    <div class="container post-container">
+      <div class="post-content">
+        <div class="language-grid">
+          <a href="/learn/french" class="language-card">
+            <span class="flag">🇫🇷</span>
+            <h2>French</h2>
+            <p>Master liaisons, nasal vowels, and real-world conversation.</p>
+          </a>
+          <a href="/learn/spanish" class="language-card">
+            <span class="flag">🇪🇸</span>
+            <h2>Spanish</h2>
+            <p>Master the subjunctive, ser vs estar, and real-world regional fluency.</p>
+          </a>
+          <a href="/learn/german" class="language-card">
+            <span class="flag">🇩🇪</span>
+            <h2>German</h2>
+            <p>Conquer case endings, compound nouns, and verb-final sentences through immersion.</p>
+          </a>
+          <!-- Layout is ready to easily accommodate more languages here -->
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <Cta />
+</Layout>
+
+<style>
+  .post-header {
+    padding: 6rem 0 4rem;
+    background-color: #11102A;
+    border-bottom: 1px solid var(--color-detail-indigo);
+    margin-bottom: 4rem;
+    text-align: center;
+  }
+  
+  .post-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .post-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0;
+    line-height: 1.1;
+  }
+  
+  .language-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .language-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: rgba(168, 157, 255, 0.05);
+    border: 1px solid rgba(168, 157, 255, 0.1);
+    border-radius: 16px;
+    padding: 2.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .language-card:hover {
+    background: rgba(168, 157, 255, 0.1);
+    border-color: rgba(168, 157, 255, 0.2);
+    transform: translateY(-4px);
+  }
+
+  .language-card .flag {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .language-card h2 {
+    font-size: 1.75rem;
+    color: #FFFFFF;
+    margin-bottom: 0.75rem;
+    margin-top: 0;
+  }
+
+  .language-card p {
+    color: #94A3B8;
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .post-header h1 {
+      font-size: 2.5rem;
+    }
+  }
+</style>

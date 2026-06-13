@@ -8,7 +8,8 @@ Listening seems hard at first, and as a result most people never do it, although
 
 That is why our app is based on comprehensible input. If you understand something, you will most likely also remember what is being said. 
 So when you are learning a new language, choose content you can understand. If you understand it, it will feel easy, passive, effortless, and normal. With that you will enjoy the process and become even more motivated to keep going.
-
+![Naruto Listening - screenshot from Fluly Video Player](./naruto_listening.webp)
+*Learning through real-world content*
 ## So Why is Listening Better?
 
 - That is what native speakers do. You will learn and be entertained at the same time.

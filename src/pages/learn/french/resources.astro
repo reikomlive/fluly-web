@@ -1,0 +1,161 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Cta from '../../../components/Cta.astro';
+
+const title = "Best French Resources for Immersion Learners";
+const description = "A curated list of the absolute best podcasts, YouTube channels, and news sources to help you master French through immersion.";
+const publishDate = new Date('2026-06-13');
+---
+
+<Layout title={title} description={description} isBlogPost={true} publishDate={publishDate} slug="/learn/french/resources">
+  <article class="blog-post">
+    <header class="post-header glow-purple">
+      <div class="container post-container">
+        <a href="/learn/french" class="back-link">&larr; Back to French Hub</a>
+        <time datetime={publishDate.toISOString()}>June 13, 2026</time>
+        <h1>{title}</h1>
+      </div>
+    </header>
+
+    <div class="container post-container">
+      <div class="post-content">
+        
+        <p>Finding the right media is the hardest part of <a href="/blog/immersion-language-learning" style="color: #a78bfa; text-decoration: underline;">immersion language learning</a>. If you pick content that is too easy, you get bored and stop paying attention. If you pick content that is too hard, you get overwhelmed and give up. The sweet spot is "comprehensible input"—content where you understand the general context but still encounter new, challenging vocabulary.</p>
+
+        <p>To save you hundreds of hours of searching, we have curated the absolute best French resources for immersion learners. Whether you need a slow podcast for your morning commute or a gritty Netflix drama to test your advanced listening skills, these resources will accelerate your journey to fluency.</p>
+
+        <h2>Best Podcasts for French Learners</h2>
+
+        <p>Audio is the cornerstone of immersion. These podcasts are specifically tailored to bridge the gap between textbook French and the fast-paced, colloquial French spoken on the streets.</p>
+
+        <ul>
+          <li><strong>InnerFrench (Beginner to Intermediate):</strong> Hugo Cotton is a legend in the French learning community. He speaks at a naturally measured pace, avoids heavy slang, and discusses fascinating cultural and historical topics. If you can understand basic French but struggle with native speed, this is your starting point.</li>
+          <li><strong>Français Authentique (Intermediate):</strong> Johan focuses on authentic, everyday French. He explains common idioms and expressions entirely in French, which is fantastic for forcing your brain to stop translating into English.</li>
+          <li><strong>News in Slow French (Beginner to Intermediate):</strong> Exactly what it sounds like. Weekly news stories delivered at a deliberately slow pace. It is perfect for staying up to date on global events while training your ear.</li>
+          <li><strong>Transfert (Advanced):</strong> Once you are ready for native-level audio, <em>Transfert</em> is a gripping storytelling podcast where ordinary people recount extraordinary personal stories. The audio is incredibly natural, filled with hesitation, slang, and true conversational cadence.</li>
+        </ul>
+
+        <h2>News & Graded Reading</h2>
+
+        <p>Reading is the cheat code for vocabulary acquisition. It allows you to pause, analyze, and absorb new grammar structures at your own pace.</p>
+
+        <ul>
+          <li><strong>RFI Savoirs (Journal en français facile):</strong> Radio France Internationale produces a daily 10-minute news bulletin specifically designed to be accessible to learners. They provide a full transcript so you can read along as you listen.</li>
+          <li><strong>Le Monde / Le Figaro (Advanced):</strong> The two titans of French journalism. <em>Le Monde</em> tends to use more sophisticated, literary vocabulary, making it an excellent resource for pushing your reading comprehension to a near-native level.</li>
+          <li><strong>Graded Readers (A1-B2):</strong> Look for publishers like CLE International or Hachette FLE. They adapt classic novels like <em>Les Misérables</em> or <em>Le Petit Prince</em> into simplified French, categorizing them by CEFR level (A1 to B2).</li>
+        </ul>
+
+        <h2>YouTube Channels</h2>
+
+        <p>YouTube is invaluable because you get visual context, body language, and immediate access to French subtitles.</p>
+
+        <ul>
+          <li><strong>French Mornings with Elisa (Beginner):</strong> Elisa is fantastic at breaking down colloquial French and explaining the difference between how French is taught and how it is actually spoken.</li>
+          <li><strong>Easy French (All Levels):</strong> The hosts interview people on the streets of Paris about various topics. It provides incredible exposure to diverse accents, speaking speeds, and real-world slang. They provide dual English and French subtitles on all videos.</li>
+          <li><strong>Joueur du Grenier (Advanced):</strong> The French equivalent of the Angry Video Game Nerd. If you want to learn the kind of rapid-fire slang and internet culture references that young French people actually use, this is a goldmine.</li>
+        </ul>
+
+        <h2>Shows & Films</h2>
+
+        <p>When watching French cinema or television, always try to use French subtitles rather than English ones to maximize your learning. If you need help structuring your viewing habits, refer back to our <a href="/learn/french/immersion-guide" style="color: #a78bfa; text-decoration: underline;">French immersion guide</a>.</p>
+
+        <ul>
+          <li><strong>Lupin (Netflix):</strong> A sleek, modern heist thriller. The dialogue is fast but very clear, making it a great transition into native television.</li>
+          <li><strong>Dix pour cent / Call My Agent! (Netflix):</strong> A hilarious comedy about a Parisian talent agency. It is incredibly fast-paced and loaded with cultural references and Parisian slang.</li>
+          <li><strong>Le Bureau des Légendes (Canal+):</strong> A gritty, realistic spy thriller often regarded as one of the best French series ever made. The dialogue is dense and complex, perfect for advanced learners.</li>
+        </ul>
+
+        <h2>Apps & Tools</h2>
+
+        <p>To tie all of this together, you need tools to capture and review the vocabulary you encounter.</p>
+
+        <ul>
+          <li><strong>Fluly:</strong> Our very own platform. Instead of painstakingly pausing videos to look up words in a dictionary, Fluly lets you import any local video or YouTube video and tap on words for instant definitions, automatically saving them into a spaced-repetition flashcard system.</li>
+          <li><strong>WordReference:</strong> The best online dictionary for learners. It provides exhaustive examples of how words are used in different contexts, which is crucial for a language as nuanced as French.</li>
+        </ul>
+
+        <hr style="margin: 3rem 0; border-color: rgba(168, 157, 255, 0.1);" />
+
+        <p><em>Note: If you notice any resources listed here that have changed names or are no longer available, please reach out so we can update this guide!</em></p>
+
+      </div>
+    </div>
+  </article>
+
+  <Cta />
+</Layout>
+
+<style>
+  .post-header {
+    padding: 6rem 0 4rem;
+    background-color: #11102A;
+    border-bottom: 1px solid var(--color-detail-indigo);
+    margin-bottom: 4rem;
+  }
+  
+  .post-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: var(--color-light-purple);
+    font-weight: 600;
+  }
+  
+  .back-link:hover {
+    color: var(--color-highlight-purple);
+  }
+  
+  .post-header time {
+    display: block;
+    color: var(--color-brand-gold);
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  
+  .post-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0;
+    line-height: 1.1;
+  }
+  
+  .post-content {
+    font-size: 1.125rem;
+    color: #E2E8F0;
+    line-height: 1.8;
+  }
+  
+  .post-content h2 {
+    font-size: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    color: #FFFFFF;
+  }
+  
+  .post-content p {
+    margin-bottom: 1.5rem;
+  }
+
+  .post-content ul {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .post-content li {
+    margin-bottom: 0.75rem;
+  }
+
+  .post-content strong {
+    color: #A78BFA;
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .post-header h1 {
+      font-size: 2.5rem;
+    }
+  }
+</style>

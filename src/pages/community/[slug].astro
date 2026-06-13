@@ -1,0 +1,156 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Cta from '../../components/Cta.astro';
+
+export async function getStaticPaths() {
+  const communityEntries = await getCollection('community');
+  return communityEntries.map(entry => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, language, whatsappLink, description } = entry.data;
+
+// Create SEO-optimized title
+const seoTitle = `${title} - Learn ${language} on WhatsApp | Fluly Community`;
+const seoDescription = description || `Join the active ${language} learning community on WhatsApp. Practice with native speakers and real language learners.`;
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <article class="community-post">
+    <header class="post-header glow-purple">
+      <div class="container post-container">
+        <a href="/community" class="back-link">&larr; Back to communities</a>
+        <h1>{title}</h1>
+        <p class="language-badge">{language}</p>
+        <p class="seo-description">{seoDescription}</p>
+      </div>
+    </header>
+
+    <div class="container post-container">
+      <div class="post-content">
+        <Content />
+      </div>
+
+      {whatsappLink && (
+        <div class="whatsapp-section">
+          <h3>Join Our WhatsApp Group for Language Learning</h3>
+          <p>Connect with learners and native speakers. Practice real conversations daily.</p>
+          <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="whatsapp-button">
+            💬 Join on WhatsApp Now
+          </a>
+        </div>
+      )}
+    </div>
+  </article>
+
+  <Cta />
+</Layout>
+
+<style>
+  .post-header {
+    padding: 6rem 0 4rem;
+    background-color: #11102A;
+    border-bottom: 1px solid var(--color-detail-indigo);
+    margin-bottom: 4rem;
+  }
+  
+  .post-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+  }
+
+  .back-link:hover {
+    color: var(--color-text-primary);
+  }
+
+  .language-badge {
+    color: var(--color-accent-purple);
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .seo-description {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    margin-top: 1rem;
+    line-height: 1.6;
+  }
+
+  .post-content {
+    margin-bottom: 3rem;
+  }
+
+  .post-content :global(h2),
+  .post-content :global(h3) {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+  }
+
+  .post-content :global(p) {
+    color: #e5e7eb;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .post-content :global(ul),
+  .post-content :global(ol) {
+    color: #e5e7eb;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .post-content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  .whatsapp-section {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: rgba(76, 175, 80, 0.1);
+    border: 1px solid rgba(76, 175, 80, 0.3);
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .whatsapp-section h3 {
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+  }
+
+  .whatsapp-section p {
+    margin-bottom: 1.5rem;
+    color: #e5e7eb;
+  }
+
+  .whatsapp-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .whatsapp-button:hover {
+    background-color: #20ba5a;
+    transform: translateY(-2px);
+  }
+</style>

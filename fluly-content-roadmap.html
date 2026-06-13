@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>fluly.io — Content Roadmap</title>
+<style>
+  :root {
+    --bg: #fbf7f1;
+    --paper: #ffffff;
+    --ink: #2b2a28;
+    --ink-soft: #6f6a63;
+    --rule: #e7e0d6;
+    --coral: #d96c4e;
+    --teal: #2f6f63;
+    --gold: #c9a24b;
+    --plum: #6c5b7b;
+    --display: 'Fraunces', Georgia, serif;
+    --body: 'Inter', -apple-system, sans-serif;
+    --mono: 'IBM Plex Mono', Consolas, monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    line-height: 1.6;
+  }
+
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 56px 24px 100px; }
+
+  /* ---------- HEADER ---------- */
+  header { margin-bottom: 56px; }
+  .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 18px;
+  }
+  h1 {
+    font-family: var(--display);
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    max-width: 720px;
+    margin-bottom: 18px;
+  }
+  h1 em { font-style: italic; color: var(--coral); }
+  .lede {
+    font-size: 17px;
+    color: var(--ink-soft);
+    max-width: 600px;
+  }
+
+  /* ---------- COMPASS / PILLARS ---------- */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin: 48px 0 64px;
+  }
+  .pillar {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 22px 18px;
+  }
+  .pillar .glyph {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 17px;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+  .pillar h3 { font-family: var(--display); font-size: 17px; font-weight: 600; margin-bottom: 6px; }
+  .pillar p { font-size: 13px; color: var(--ink-soft); }
+
+  /* ---------- SECTION FRAME ---------- */
+  section { margin-bottom: 68px; }
+  .section-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 14px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .section-head h2 {
+    font-family: var(--display);
+    font-size: 26px;
+    font-weight: 600;
+  }
+  .section-head .count {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+    letter-spacing: 0.06em;
+  }
+  .section-intro {
+    color: var(--ink-soft);
+    font-size: 14px;
+    max-width: 620px;
+    margin: -16px 0 24px;
+  }
+
+  /* ---------- IDEA CARDS ---------- */
+  .idea-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  .idea {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 22px 24px;
+    position: relative;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .idea:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -12px rgba(43,42,40,0.18);
+  }
+  .idea .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .idea h3 {
+    font-family: var(--display);
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.25;
+  }
+  .idea p { font-size: 13.5px; color: var(--ink-soft); margin-bottom: 10px; }
+  .idea .angle {
+    font-size: 12.5px;
+    color: var(--ink);
+    border-left: 2px solid var(--rule);
+    padding-left: 10px;
+    font-style: italic;
+  }
+  .idea .angle b { font-style: normal; }
+
+  /* tag colors */
+  .tag-found  { background: rgba(217,108,78,0.12); color: var(--coral); }
+  .tag-method { background: rgba(47,111,99,0.12); color: var(--teal); }
+  .tag-app    { background: rgba(108,91,123,0.12); color: var(--plum); }
+  .tag-trend  { background: rgba(201,162,75,0.16); color: #a8822f; }
+
+  /* ---------- CALENDAR ---------- */
+  .calendar {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 8px;
+    overflow-x: auto;
+  }
+  .calendar table { width: 100%; border-collapse: collapse; min-width: 640px; }
+  .calendar th {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+    text-align: left;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .calendar td {
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--rule);
+    font-size: 13.5px;
+    vertical-align: top;
+  }
+  .calendar tr:last-child td { border-bottom: none; }
+  .calendar .week-num {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 20px;
+    color: var(--coral);
+    white-space: nowrap;
+  }
+  .calendar .post-title { font-weight: 600; margin-bottom: 3px; }
+  .calendar .post-note { color: var(--ink-soft); font-size: 12.5px; }
+
+  /* ---------- FORMAT IDEAS ---------- */
+  .formats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .format-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 24px;
+  }
+  .format-card .num {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 34px;
+    color: var(--rule);
+    margin-bottom: 6px;
+    line-height: 1;
+  }
+  .format-card h3 { font-family: var(--display); font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+  .format-card p { font-size: 13px; color: var(--ink-soft); }
+
+  /* ---------- KEYWORD CLOUD ---------- */
+  .kw-panel {
+    background: var(--ink);
+    border-radius: 14px;
+    padding: 36px;
+    color: #f6f1e8;
+  }
+  .kw-panel h2 {
+    font-family: var(--display);
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #f6f1e8;
+  }
+  .kw-panel .section-intro { color: #c9c3b8; margin-bottom: 24px; }
+  .kw-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
+  .kw {
+    font-family: var(--mono);
+    font-size: 13px;
+    padding: 7px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(246,241,232,0.18);
+    color: #f6f1e8;
+  }
+  .kw.big { font-size: 16px; border-color: var(--coral); color: var(--coral); }
+  .kw.med { border-color: var(--gold); color: var(--gold); }
+
+  footer {
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-soft);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 760px) {
+    .pillars { grid-template-columns: repeat(2, 1fr); }
+    .idea-grid { grid-template-columns: 1fr; }
+    .formats { grid-template-columns: 1fr; }
+    h1 { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">fluly.io · Content roadmap</div>
+    <h1>What to write next, so the <em>right people</em> find you</h1>
+    <p class="lede">A forward-looking content plan built around what learners are actively searching for — organized into themes, a six-week calendar, format ideas, and a keyword bank to pull from as you write.</p>
+  </header>
+
+  <!-- ============ PILLARS ============ -->
+  <div class="pillars">
+    <div class="pillar">
+      <div class="glyph" style="background:var(--coral)">i</div>
+      <h3>Immersion &amp; Method</h3>
+      <p>Your strongest existing topic — explain, defend, and expand the immersion approach.</p>
+    </div>
+    <div class="pillar">
+      <div class="glyph" style="background:var(--teal)">m</div>
+      <h3>Practical How-To</h3>
+      <p>Step-by-step guides for learners who want a plan, not just theory.</p>
+    </div>
+    <div class="pillar">
+      <div class="glyph" style="background:var(--plum)">a</div>
+      <h3>AI &amp; Modern Tools</h3>
+      <p>Where language learning is heading — AI tutors, adaptive practice, voice tools.</p>
+    </div>
+    <div class="pillar">
+      <div class="glyph" style="background:var(--gold)">c</div>
+      <h3>Comparisons &amp; Honesty</h3>
+      <p>Decision-stage content — app vs app, method vs method, myth vs reality.</p>
+    </div>
+  </div>
+
+  <!-- ============ IMMERSION & METHOD ============ -->
+  <section>
+    <div class="section-head">
+      <h2>Immersion &amp; Method</h2>
+      <span class="count">8 ideas</span>
+    </div>
+    <p class="section-intro">This is the territory where you already have traction. Go deeper and wider — every angle on "immersion" that a curious beginner might type into Google.</p>
+    <div class="idea-grid">
+
+      <div class="idea">
+        <span class="tag tag-found">Pillar</span>
+        <h3>Immersion Language Learning: The Complete Guide</h3>
+        <p>A long-form, evergreen explainer covering what immersion is, why it works, and how to start — designed to be the page you link every other post back to.</p>
+        <div class="angle">Angle: <b>answer the question in the first 100 words</b>, then go deep.</div>
+      </div>
+
+      <div class="idea">
+        <span class="tag tag-found">Theory</span>
+        <h3>What Is Comprehensible Input (and Why It's the Foundation of Immersion)?</h3>
+        <p>Explain Krashen's input hypothesis in plain language — the "why" behind immersion that most learners have heard of but never understood.</p>
+        <div class="angle">Angle: <b>use a relatable analogy</b> — how kids learn their first language.</div>
+      </div>
+
+      <div class="idea">
+        <span class="tag tag-found">Practical</span>
+        <h3>Passive vs Active Immersion: Which Should You Choose?</h3>
+        <p>Break down the difference between background listening and focused, deliberate immersion — and when each makes sense.</p>
+        <div class="angle">Angle: <b>give a weekly split</b> readers can copy.</div>
+      </div>
+
+      <div class="idea">
+        <span class="tag tag-found">Objection</span>
+        <h3>Can You Really Learn a Language Without Living Abroad?</h3>
+        <p>Tackle the biggest skepticism head-on — most people assume immersion requires moving to another country.</p>
+        <div class="angle">Angle: <b>case studies of at-home immersion</b> success stories.</div>
+      </div>
+
+      <div class="idea">
+        <span class="tag tag-found">Timeline</span>
+        <h3>How Long Does It Actually Take to Get Fluent Through Immersion?</h3>
+        <p>Set realistic expectations with hour-based milestones (CEFR levels, hours-to-fluency estimates) rather than vague promises.</p>
+        <div class="angle">Angle: <b>a simple visual timeline</b> readers can screenshot and save.</div>
+      </div>
+
+      <div class="idea">
+        <span class="tag tag-found">Beginner</span>
+        <h3>The Mass Immersion Approach, Explained Simply</h3>
+        <p>Demystify this specific term — what it means, who popularized it, and how a beginner can apply a lighter version of it.</p>
+        <div class="angle">Angle: <b>contrast "mass" vs "gentle"</b> immersion for busy adults.</div>
+      </div>
+
+      <div class="idea">
+        <span class="tag tag-found">Deep dive</span>
+        <h3>Why Immersion Feels Hard at First — and Why That's the Point</h3>
+        <p>Address the frustration phase honestly. Validates the learner's struggle while explaining the "silent period" and why pushing through matters.</p>
+        <div class="angle">Angle: <b>reassurance + science</b> — reduces drop-off for new users.</div>
+      </div>
+
+      <div class="idea">
+        <span class="tag tag-found">Niche</span>
+        <h3>Immersion for People Who Hate Studying</h3>
+        <p>Targets learners who've failed with textbooks before — position immersion as the anti-study method.</p>
+        <div class="angle">Angle: <b>playful, contrarian tone</b> — good for social sharing too.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ PRACTICAL HOW-TO ============ -->
+  <section>
+    <div class="section-head">
+      <h2>Practical How-To</h2>
+      <span class="count">7 ideas</span>
+    </div>
+    <p class="section-intro">Searchers in "how do I..." mode are close to taking action — these posts turn curiosity into routine, and routine into app usage.</p>
+    <div class="idea-grid">
+
+      <div class="idea">
+        <span class="tag tag-method">Routine</span>
+        <h3>A Realistic 30-Minute Daily Language Routine</h3>
+        <p>Give a concrete, time-boxed daily plan — listening, shadowing, review — that busy adults can actually stick to.</p>
+        <div class="angle">Angle: <b>downloadable/printable checklist</b> format.</div>
+      </div>
+
+      <div class="idea">
+        <span class="tag tag-method">Skill</span>
+        <h3>How to Train Your Ear Before You Can Speak</h3>
+        <p>Listening comprehension is the most underrated skill — explain how to build it deliberately, with examples.</p>
+        <div class="angle">Angle: <b>link to "5 ways to learn faster"</b> post.</div>
+      </div>
+
+      <div class="idea">
+        <span class="tag tag-method">Memory</span>
+        <h3>How Spaced Repetition Actually Works (And How Often You Need It)</h3>
+        <p>Expand your existing spaced repetition post into a practical guide with real intervals and examples.</p>
+        <div class="angle">Angle: <b>simple chart</b> — review intervals over time.</div>
+      </div>
+
+      <div class="idea">
+        <span class="tag tag-method">Speaking</span>
+        <h3>How to Practice Speaking When You Have No One to Talk To</h3>
+        <p>A huge pain point — shadowing, self-talk, voice journaling, AI conversation partners.</p>
+        <div class="angle">Angle: <b>connects naturally to AI tools</b> theme below.</div>
+      </div>
+
+      <div class="idea">
+        <span class="tag tag-method">Mindset</span>
+        <h3>How to Stop Translating in Your Head</h3>
+        <p>A common plateau — explain why it happens and concrete exercises to think directly in the target language.</p>
+        <div class="angle">Angle: <b>"aha moment" framing</b> — highly shareable.</div>
+      </div>
+
+      <div class="idea">
+        <span class="tag tag-method">Plateau</span>
+        <h3>What to Do When You Feel Stuck at Intermediate Level</h3>
+        <p>The infamous "intermediate plateau" — a huge, recurring search topic for any learner past the beginner stage.</p>
+        <div class="angle">Angle: <b>position immersion as the plateau-breaker</b>.</div>
+      </div>
+
+      <div class="idea">
+        <span class="tag tag-method">Habit</span>
+        <h3>How to Build a Language Habit That Sticks for More Than a Month</h3>
+        <p>Habit-formation angle — most learners quit by week 3. Tie in streaks, small wins, and identity-based habits.</p>
+        <div class="angle">Angle: <b>tie into app's streak/progress features</b> if you have them.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ AI & MODERN TOOLS ============ -->
+  <section>
+    <div class="section-head">
+      <h2>AI &amp; Modern Tools</h2>
+      <span class="count">6 ideas</span>
+    </div>
+    <p class="section-intro">Search interest in AI-driven, personalized language learning is climbing fast. This is where you differentiate fluly from older-generation apps.</p>
+    <div class="idea-grid">
+
+      <div class="idea">
+        <span class="tag tag-trend">Trend</span>
+        <h3>How AI Is Changing the Way We Learn Languages in 2026</h3>
+        <p>A trend roundup — adaptive lessons, real-time feedback, AI conversation partners — framed around what's actually useful vs hype.</p>
+        <div class="angle">Angle: <b>be the honest voice</b> in a hype-heavy space.</div>
+      </div>
+
+      <div class="idea">
+        <span class="tag tag-trend">Comparison</span>
+        <h3>AI Conversation Practice vs Talking to a Real Person: Pros and Cons</h3>
+        <p>Balanced look at when AI practice helps and where it falls short — builds trust by not overselling.</p>
+        <div class="angle">Angle: <b>position fluly as a supplement</b>, not a replacement.</div>
+      </div>
+
+      <div class="idea">
+        <span class="tag tag-trend">Personalization</span>
+        <h3>Why "One-Size-Fits-All" Language Courses Don't Work Anymore</h3>
+        <p>Tie into the shift toward adaptive, personalized learning paths — explain what personalization should actually mean.</p>
+        <div class="angle">Angle: <b>contrast rigid course levels vs adaptive paths</b>.</div>
+      </div>
+
+      <div class="idea">
+        <span class="tag tag-trend">Listening</span>
+        <h3>Using Podcasts and Audio to Learn a Language Passively</h3>
+        <p>Text-to-audio and voice content is a rising search category — show learners how to turn commute time into immersion time.</p>
+        <div class="angle">Angle: <b>curated starter list</b> by language/level.</div>
+      </div>
+
+      <div class="idea">
+        <span class="tag tag-trend">Project-based</span>
+        <h3>Learn a Language by Working on Real Projects, Not Just Lessons</h3>
+        <p>Project-based learning is a noted 2026 trend — pitch real-world tasks (writing an email, planning a trip) as practice.</p>
+        <div class="angle">Angle: <b>give 3 starter "projects"</b> readers can try today.</div>
+      </div>
+
+      <div class="idea">
+        <span class="tag tag-trend">Community</span>
+        <h3>Why Learning a Language Alone Doesn't Have to Mean Learning in Isolation</h3>
+        <p>Addresses the "human connection" trend — community, accountability partners, online groups — even for self-study learners.</p>
+        <div class="angle">Angle: <b>soft mention of community features</b> if fluly has any.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ COMPARISONS & HONESTY ============ -->
+  <section>
+    <div class="section-head">
+      <h2>Comparisons &amp; Honesty</h2>
+      <span class="count">5 ideas</span>
+    </div>
+    <p class="section-intro">Decision-stage readers — close to choosing a tool, comparing options, or deciding if an approach is "worth it." High intent, often high conversion.</p>
+    <div class="idea-grid">
+
+      <div class="idea">
+        <span class="tag tag-app">Decision</span>
+        <h3>Immersion Apps vs Traditional Courses: An Honest Comparison</h3>
+        <p>Companion piece to your existing "why fluly beats traditional apps" post — broaden it into a balanced comparison framework.</p>
+        <div class="angle">Angle: <b>acknowledge real tradeoffs</b> — builds credibility.</div>
+      </div>
+
+      <div class="idea">
+        <span class="tag tag-app">Myth-busting</span>
+        <h3>5 Language Learning Myths That Are Wasting Your Time</h3>
+        <p>Tackle common myths (grammar-first, "you need to be a kid," "you're just not good at languages") — punchy, shareable format.</p>
+        <div class="angle">Angle: <b>numbered list format</b> performs well for this topic type.</div>
+      </div>
+
+      <div class="idea">
+        <span class="tag tag-app">Cost</span>
+        <h3>Is It Worth Paying for a Language App? A Practical Breakdown</h3>
+        <p>Address the value question directly — what free resources can and can't do, and when paid tools earn their cost.</p>
+        <div class="angle">Angle: <b>transparent, not salesy</b> — increases trust before pitching fluly.</div>
+      </div>
+
+      <div class="idea">
+        <span class="tag tag-app">Self-assessment</span>
+        <h3>How to Know If a Language Learning Method Is Actually Working</h3>
+        <p>Give learners ways to measure progress beyond "I feel more fluent" — useful for anyone evaluating any method, including yours.</p>
+        <div class="angle">Angle: <b>simple self-check quiz</b> as an interactive element.</div>
+      </div>
+
+      <div class="idea">
+        <span class="tag tag-app">Storytelling</span>
+        <h3>What I Wish I Knew Before Starting to Learn [Language]</h3>
+        <p>A first-person, relatable post (or series, one per language) — builds emotional connection and ranks for "learning [language] tips."</p>
+        <div class="angle">Angle: <b>turn into a series</b> — Spanish, French, Japanese, etc.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ 6-WEEK CALENDAR ============ -->
+  <section>
+    <div class="section-head">
+      <h2>Suggested publishing order</h2>
+      <span class="count">first 6 weeks</span>
+    </div>
+    <p class="section-intro">One post a week, starting with the topics closest to your existing traction, then widening outward.</p>
+    <div class="calendar">
+      <table>
+        <thead>
+          <tr><th style="width:90px">Week</th><th>Post</th><th>Why this order</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="week-num">01</td>
+            <td><div class="post-title">Immersion Language Learning: The Complete Guide</div><div class="post-note">Immersion &amp; Method</div></td>
+            <td class="post-note">Your pillar — everything else links back to this one.</td>
+          </tr>
+          <tr>
+            <td class="week-num">02</td>
+            <td><div class="post-title">The Mass Immersion Approach, Explained Simply</div><div class="post-note">Immersion &amp; Method</div></td>
+            <td class="post-note">Closest topic to existing search visibility.</td>
+          </tr>
+          <tr>
+            <td class="week-num">03</td>
+            <td><div class="post-title">Immersion Apps vs Traditional Courses: An Honest Comparison</div><div class="post-note">Comparisons</div></td>
+            <td class="post-note">Builds directly on your best-performing existing post.</td>
+          </tr>
+          <tr>
+            <td class="week-num">04</td>
+            <td><div class="post-title">A Realistic 30-Minute Daily Language Routine</div><div class="post-note">Practical How-To</div></td>
+            <td class="post-note">Actionable post to link from the pillar guide.</td>
+          </tr>
+          <tr>
+            <td class="week-num">05</td>
+            <td><div class="post-title">What Is Comprehensible Input (and Why It's the Foundation of Immersion)?</div><div class="post-note">Immersion &amp; Method</div></td>
+            <td class="post-note">Deepens topical authority around your core theme.</td>
+          </tr>
+          <tr>
+            <td class="week-num">06</td>
+            <td><div class="post-title">How AI Is Changing the Way We Learn Languages in 2026</div><div class="post-note">AI &amp; Modern Tools</div></td>
+            <td class="post-note">Timely angle — differentiates fluly from older apps.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ FORMAT IDEAS ============ -->
+  <section>
+    <div class="section-head">
+      <h2>Formats worth mixing in</h2>
+      <span class="count">beyond standard posts</span>
+    </div>
+    <div class="formats">
+      <div class="format-card">
+        <div class="num">01</div>
+        <h3>"What I wish I knew" series</h3>
+        <p>One post per language — easy to template, ranks for language-specific long-tail searches, and builds a recognizable series.</p>
+      </div>
+      <div class="format-card">
+        <div class="num">02</div>
+        <h3>Myth vs reality lists</h3>
+        <p>Numbered, scannable posts that perform well in search snippets and get shared on social media.</p>
+      </div>
+      <div class="format-card">
+        <div class="num">03</div>
+        <h3>Self-check quizzes</h3>
+        <p>"Is immersion right for you?" style interactive elements — increase time on page and shareability.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KEYWORD BANK ============ -->
+  <div class="kw-panel">
+    <h2>Keyword bank to weave in naturally</h2>
+    <p class="section-intro">Phrases worth using in titles, headers, or body copy where they fit naturally — don't force any that don't.</p>
+    <div class="kw-cloud">
+      <span class="kw big">immersion language learning</span>
+      <span class="kw big">learn a language through immersion</span>
+      <span class="kw med">comprehensible input</span>
+      <span class="kw med">mass immersion approach</span>
+      <span class="kw">passive vs active immersion</span>
+      <span class="kw">how to learn languages faster</span>
+      <span class="kw med">immersion for beginners</span>
+      <span class="kw">language learning plateau</span>
+      <span class="kw">AI language learning</span>
+      <span class="kw">spaced repetition</span>
+      <span class="kw">how long to become fluent</span>
+      <span class="kw">best way to learn a language</span>
+      <span class="kw med">comprehensible input method</span>
+      <span class="kw">language immersion at home</span>
+      <span class="kw">daily language routine</span>
+    </div>
+  </div>
+
+  <footer>fluly.io · Content roadmap · Generated Jun 13, 2026</footer>
+
+</div>
+</body>
+</html>

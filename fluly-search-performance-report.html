@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>fluly.io — Search Performance, Jun 13 2026</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --panel: #131a22;
+    --panel-line: #1f2a35;
+    --ink: #d7e0e8;
+    --ink-dim: #7e8fa0;
+    --accent: #5ee6b8;
+    --accent-dim: #2c5346;
+    --warn: #f0c674;
+    --bad: #f07868;
+    --mono: 'IBM Plex Mono', 'SF Mono', Consolas, monospace;
+    --sans: 'Inter', -apple-system, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.5;
+    padding: 0 0 80px;
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 48px 24px; }
+
+  /* ---------- HEADER ---------- */
+  header {
+    border-bottom: 1px solid var(--panel-line);
+    padding-bottom: 32px;
+    margin-bottom: 40px;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  h1 {
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .subhead { color: var(--ink-dim); font-size: 15px; max-width: 640px; }
+
+  /* ---------- KPI ROW ---------- */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--panel-line);
+    border: 1px solid var(--panel-line);
+    margin-bottom: 48px;
+  }
+  .kpi {
+    background: var(--panel);
+    padding: 24px 20px;
+  }
+  .kpi-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+  .kpi-value {
+    font-family: var(--mono);
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .kpi-value.accent { color: var(--accent); }
+  .kpi-value.warn { color: var(--warn); }
+  .kpi-note { font-size: 12px; color: var(--ink-dim); margin-top: 6px; }
+
+  /* ---------- SECTION ---------- */
+  section { margin-bottom: 56px; }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  h2 {
+    font-size: 13px;
+    font-family: var(--mono);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+  }
+  .section-note { font-size: 13px; color: var(--ink-dim); }
+
+  /* ---------- CHART ---------- */
+  .chart-panel {
+    background: var(--panel);
+    border: 1px solid var(--panel-line);
+    padding: 24px;
+  }
+  .chart-svg-wrap { width: 100%; overflow-x: auto; }
+  .legend { display: flex; gap: 24px; margin-top: 16px; font-family: var(--mono); font-size: 11px; color: var(--ink-dim); }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .legend .dot { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+
+  /* ---------- TABLE ---------- */
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  thead th {
+    text-align: left;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-dim);
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--panel-line);
+    white-space: nowrap;
+  }
+  thead th.num, tbody td.num { text-align: right; }
+  tbody td {
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--panel-line);
+    vertical-align: middle;
+  }
+  tbody tr:hover { background: rgba(94,230,184,0.04); }
+  tbody td.num { font-family: var(--mono); }
+  .pos-pill {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+  .pos-good { background: rgba(94,230,184,0.14); color: var(--accent); }
+  .pos-mid { background: rgba(240,198,116,0.14); color: var(--warn); }
+  .pos-bad { background: rgba(240,120,104,0.14); color: var(--bad); }
+  .page-url { color: var(--ink); }
+  .page-url .domain { color: var(--ink-dim); }
+  .zero { color: var(--ink-dim); }
+
+  /* ---------- BAR ---------- */
+  .bar-row { display: flex; align-items: center; gap: 12px; }
+  .bar-track { flex: 1; height: 6px; background: var(--panel-line); border-radius: 3px; overflow: hidden; }
+  .bar-fill { height: 100%; background: var(--accent); border-radius: 3px; }
+
+  /* ---------- TOPIC CARDS ---------- */
+  .tier-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-dim);
+    margin: 28px 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .tier-label::after { content: ""; flex: 1; height: 1px; background: var(--panel-line); }
+  .tier-1 { color: var(--accent); }
+  .tier-2 { color: var(--warn); }
+
+  .topic-card {
+    background: var(--panel);
+    border: 1px solid var(--panel-line);
+    border-left: 3px solid var(--panel-line);
+    padding: 16px 20px;
+    margin-bottom: 10px;
+  }
+  .topic-card.t1 { border-left-color: var(--accent); }
+  .topic-card.t2 { border-left-color: var(--warn); }
+  .topic-card.t3 { border-left-color: var(--ink-dim); }
+  .topic-title { font-weight: 600; font-size: 15px; margin-bottom: 6px; }
+  .topic-meta { font-family: var(--mono); font-size: 12px; color: var(--ink-dim); margin-bottom: 6px; }
+  .topic-meta b { color: var(--ink); }
+  .topic-why { font-size: 13px; color: var(--ink-dim); }
+
+  footer {
+    border-top: 1px solid var(--panel-line);
+    padding-top: 20px;
+    margin-top: 60px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  @media (max-width: 720px) {
+    .kpi-row { grid-template-columns: repeat(2, 1fr); }
+    h1 { font-size: 28px; }
+    table { font-size: 12px; }
+    thead th, tbody td { padding: 8px 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">fluly.io · Search Console export · Last 3 months</div>
+    <h1>Where you're showing up — and where you're not</h1>
+    <p class="subhead">18 clicks across 205 impressions. Your brand name ranks beautifully. Your blog content is indexed and topically relevant, but invisible — sitting on page 5–9 for the exact phrases people are searching.</p>
+  </header>
+
+
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="kpi-label">Total clicks</div>
+      <div class="kpi-value">18</div>
+      <div class="kpi-note">16 from brand searches</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Total impressions</div>
+      <div class="kpi-value">205</div>
+      <div class="kpi-note">across 20 days</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Avg CTR</div>
+      <div class="kpi-value accent">8.78%</div>
+      <div class="kpi-note">inflated by brand term</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Avg position</div>
+      <div class="kpi-value warn">13.5</div>
+      <div class="kpi-note">blog posts: 50–98</div>
+    </div>
+  </div>
+
+  <!-- ============ TREND CHART ============ -->
+  <section>
+    <div class="section-head">
+      <h2>Daily trend — May 23 to Jun 11</h2>
+      <span class="section-note">Bars = impressions · Line = avg. position (inverted, lower is better)</span>
+    </div>
+    <div class="chart-panel">
+      <div class="chart-svg-wrap">
+        <svg viewBox="0 0 960 320" xmlns="http://www.w3.org/2000/svg" style="width:100%; min-width:760px; height:auto;">
+          <!-- gridlines -->
+          <g stroke="#1f2a35" stroke-width="1">
+            <line x1="40" y1="20" x2="940" y2="20"/>
+            <line x1="40" y1="80" x2="940" y2="80"/>
+            <line x1="40" y1="140" x2="940" y2="140"/>
+            <line x1="40" y1="200" x2="940" y2="200"/>
+            <line x1="40" y1="260" x2="940" y2="260"/>
+          </g>
+          <!-- y axis labels: impressions (left) -->
+          <g font-family="IBM Plex Mono, monospace" font-size="10" fill="#7e8fa0">
+            <text x="34" y="263" text-anchor="end">0</text>
+            <text x="34" y="203" text-anchor="end">7</text>
+            <text x="34" y="143" text-anchor="end">14</text>
+            <text x="34" y="83" text-anchor="end">21</text>
+          </g>
+
+          <!-- bars: impressions, scaled max 21 -> 240px -->
+          <!-- x spacing: 20 days, plot area 40..940 = 900px, bar width ~30, gap -->
+          <g fill="#1f3a30">
+            <!-- 0,1,5,1,0,0,1,0,2,1,0,1,2,1,0,2,0,0,1,0 clicks shown as accent overlay below; impressions bars first -->
+            <rect x="42"  y="260" width="34" height="0"/>
+            <rect x="87"  y="234" width="34" height="26"/>
+            <rect x="132" y="31"  width="34" height="229"/>
+            <rect x="177" y="20"  width="34" height="240"/>
+            <rect x="222" y="180" width="34" height="80"/>
+            <rect x="267" y="214" width="34" height="46"/>
+            <rect x="312" y="203" width="34" height="57"/>
+            <rect x="357" y="248" width="34" height="12"/>
+            <rect x="402" y="191" width="34" height="69"/>
+            <rect x="447" y="203" width="34" height="57"/>
+            <rect x="492" y="226" width="34" height="34"/>
+            <rect x="537" y="168" width="34" height="92"/>
+            <rect x="582" y="123" width="34" height="137"/>
+            <rect x="627" y="111" width="34" height="149"/>
+            <rect x="672" y="20"  width="34" height="240"/>
+            <rect x="717" y="100" width="34" height="160"/>
+            <rect x="762" y="157" width="34" height="103"/>
+            <rect x="807" y="54"  width="34" height="206"/>
+            <rect x="852" y="54"  width="34" height="206"/>
+            <rect x="897" y="54"  width="34" height="206"/>
+          </g>
+
+          <!-- average position line, scale: pos 1 -> y=20, pos 100 -> y=260 (capped at 45 for visibility, log-ish manual mapping) -->
+          <polyline fill="none" stroke="#f0c674" stroke-width="2"
+            points="59,260 104,168 149,151 194,153 239,151 284,156 329,148 374,151 397,168 419,260 442,232 464,228 487,232 509,247 532,253 554,256 577,253 599,260 622,250 644,232 667,232 689,205 712,201 734,201 757,201 779,209 802,201 824,212 847,212 869,212 892,225"/>
+          <!-- clicks overlay (accent dots), placed near baseline -->
+          <g fill="#5ee6b8">
+            <circle cx="59"  cy="258" r="0"/>
+            <circle cx="104" cy="252" r="3"/>
+            <circle cx="149" cy="252" r="3"/>
+            <circle cx="194" cy="252" r="3"/>
+            <circle cx="239" cy="258" r="0"/>
+            <circle cx="284" cy="258" r="0"/>
+            <circle cx="329" cy="252" r="3"/>
+            <circle cx="374" cy="258" r="0"/>
+            <circle cx="419" cy="248" r="3"/>
+            <circle cx="442" cy="252" r="3"/>
+            <circle cx="464" cy="258" r="0"/>
+            <circle cx="487" cy="252" r="3"/>
+            <circle cx="509" cy="248" r="3"/>
+            <circle cx="532" cy="252" r="3"/>
+            <circle cx="554" cy="258" r="0"/>
+            <circle cx="577" cy="248" r="3"/>
+            <circle cx="599" cy="258" r="0"/>
+            <circle cx="622" cy="258" r="0"/>
+            <circle cx="644" cy="252" r="3"/>
+            <circle cx="667" cy="258" r="0"/>
+          </g>
+
+          <!-- x axis dates (every 4th) -->
+          <g font-family="IBM Plex Mono, monospace" font-size="10" fill="#7e8fa0">
+            <text x="59"  y="278" text-anchor="middle">05/23</text>
+            <text x="194" y="278" text-anchor="middle">05/26</text>
+            <text x="329" y="278" text-anchor="middle">05/29</text>
+            <text x="464" y="278" text-anchor="middle">06/01</text>
+            <text x="599" y="278" text-anchor="middle">06/04</text>
+            <text x="734" y="278" text-anchor="middle">06/07</text>
+            <text x="869" y="278" text-anchor="middle">06/10</text>
+          </g>
+        </svg>
+      </div>
+      <div class="legend">
+        <span><i class="dot" style="background:#1f3a30"></i> Impressions (bar height)</span>
+        <span><i class="dot" style="background:#f0c674"></i> Avg position (line, lower = better)</span>
+        <span><i class="dot" style="background:#5ee6b8"></i> Day had a click</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TOP PAGES ============ -->
+  <section>
+    <div class="section-head">
+      <h2>Top pages</h2>
+      <span class="section-note">Sorted by impressions · 0% CTR rows are getting seen but never clicked</span>
+    </div>
+    <div class="chart-panel" style="padding:0;">
+      <table>
+        <thead>
+          <tr>
+            <th>Page</th>
+            <th class="num">Clicks</th>
+            <th class="num">Impr.</th>
+            <th class="num">CTR</th>
+            <th class="num">Position</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="page-url">/ <span class="domain">(homepage)</span></td>
+            <td class="num">13</td>
+            <td class="num">142</td>
+            <td class="num">9.15%</td>
+            <td class="num"><span class="pos-pill pos-good">3.9</span></td>
+          </tr>
+          <tr>
+            <td class="page-url">/blog/what-is-the-immersion-method</td>
+            <td class="num">0</td>
+            <td class="num">39</td>
+            <td class="num zero">0%</td>
+            <td class="num"><span class="pos-pill pos-bad">~68</span></td>
+          </tr>
+          <tr>
+            <td class="page-url">/blog/why-fluly-beats-traditional-apps/</td>
+            <td class="num">1</td>
+            <td class="num">33</td>
+            <td class="num">3.03%</td>
+            <td class="num"><span class="pos-pill pos-mid">7.67</span></td>
+          </tr>
+          <tr>
+            <td class="page-url">/learn-more</td>
+            <td class="num">2</td>
+            <td class="num">52</td>
+            <td class="num">3.85%</td>
+            <td class="num"><span class="pos-pill pos-good">3.7</span></td>
+          </tr>
+          <tr>
+            <td class="page-url">/about</td>
+            <td class="num">0</td>
+            <td class="num">33</td>
+            <td class="num zero">0%</td>
+            <td class="num"><span class="pos-pill pos-good">4.7</span></td>
+          </tr>
+          <tr>
+            <td class="page-url">/pricing</td>
+            <td class="num">1</td>
+            <td class="num">29</td>
+            <td class="num">3.45%</td>
+            <td class="num"><span class="pos-pill pos-mid">5.7</span></td>
+          </tr>
+          <tr>
+            <td class="page-url">/ <span class="domain">(http, now redirects to https)</span></td>
+            <td class="num">2</td>
+            <td class="num">16</td>
+            <td class="num">12.5%</td>
+            <td class="num"><span class="pos-pill pos-good">3.25</span></td>
+          </tr>
+          <tr>
+            <td class="page-url">/terms</td>
+            <td class="num">0</td>
+            <td class="num">6</td>
+            <td class="num zero">0%</td>
+            <td class="num"><span class="pos-pill pos-good">2.0</span></td>
+          </tr>
+          <tr>
+            <td class="page-url">/blog/importance-of-spaced-repetition</td>
+            <td class="num">0</td>
+            <td class="num">1</td>
+            <td class="num zero">0%</td>
+            <td class="num"><span class="pos-pill pos-good">10</span></td>
+          </tr>
+          <tr>
+            <td class="page-url">/blog/text-books-do-not-work-to-learn-a-language/</td>
+            <td class="num">0</td>
+            <td class="num">1</td>
+            <td class="num zero">0%</td>
+            <td class="num"><span class="pos-pill pos-bad">62</span></td>
+          </tr>
+          <tr>
+            <td class="page-url">/blog/5-ways-to-learn-faster</td>
+            <td class="num">0</td>
+            <td class="num">1</td>
+            <td class="num zero">0%</td>
+            <td class="num"><span class="pos-pill pos-bad">76</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ QUERIES ============ -->
+  <section>
+    <div class="section-head">
+      <h2>Search queries you're already appearing for</h2>
+      <span class="section-note">"fluly" excluded (16 clicks, position 2.16, 100% brand) to surface the content gap</span>
+    </div>
+    <div class="chart-panel" style="padding:0;">
+      <table>
+        <thead>
+          <tr>
+            <th>Query</th>
+            <th class="num">Impr.</th>
+            <th class="num">Position</th>
+            <th>Gap to page 1</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>immersion language learning</td>
+            <td class="num">9</td>
+            <td class="num"><span class="pos-pill pos-bad">69.3</span></td>
+            <td><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:13%"></div></div></div></td>
+          </tr>
+          <tr>
+            <td>immersion learning</td>
+            <td class="num">6</td>
+            <td class="num"><span class="pos-pill pos-bad">64.7</span></td>
+            <td><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:15%"></div></div></div></td>
+          </tr>
+          <tr>
+            <td>immersion language</td>
+            <td class="num">5</td>
+            <td class="num"><span class="pos-pill pos-bad">77.6</span></td>
+            <td><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:11%"></div></div></div></td>
+          </tr>
+          <tr>
+            <td>fabuly <span class="domain">(brand misspelling)</span></td>
+            <td class="num">4</td>
+            <td class="num"><span class="pos-pill pos-bad">60.75</span></td>
+            <td><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:14%"></div></div></div></td>
+          </tr>
+          <tr>
+            <td>immersion style online language learning</td>
+            <td class="num">2</td>
+            <td class="num"><span class="pos-pill pos-bad">55.5</span></td>
+            <td><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:16%"></div></div></div></td>
+          </tr>
+          <tr>
+            <td>immersion in language</td>
+            <td class="num">2</td>
+            <td class="num"><span class="pos-pill pos-bad">70.5</span></td>
+            <td><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:12%"></div></div></div></td>
+          </tr>
+          <tr>
+            <td>immersing</td>
+            <td class="num">2</td>
+            <td class="num"><span class="pos-pill pos-bad">53</span></td>
+            <td><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:17%"></div></div></div></td>
+          </tr>
+          <tr>
+            <td>mass immersion approach</td>
+            <td class="num">1</td>
+            <td class="num"><span class="pos-pill pos-bad">48</span></td>
+            <td><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:19%"></div></div></div></td>
+          </tr>
+          <tr>
+            <td>learn language through immersion</td>
+            <td class="num">1</td>
+            <td class="num"><span class="pos-pill pos-bad">60</span></td>
+            <td><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:15%"></div></div></div></td>
+          </tr>
+          <tr>
+            <td>is immersion the best way to learn a language</td>
+            <td class="num">1</td>
+            <td class="num"><span class="pos-pill pos-bad">76</span></td>
+            <td><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:11%"></div></div></div></td>
+          </tr>
+          <tr>
+            <td>how to learn languages faster</td>
+            <td class="num">1</td>
+            <td class="num"><span class="pos-pill pos-bad">76</span></td>
+            <td><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:11%"></div></div></div></td>
+          </tr>
+          <tr>
+            <td>what is immersion language learning</td>
+            <td class="num">1</td>
+            <td class="num"><span class="pos-pill pos-bad">92</span></td>
+            <td><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:9%"></div></div></div></td>
+          </tr>
+          <tr>
+            <td>immersive learning method</td>
+            <td class="num">1</td>
+            <td class="num"><span class="pos-pill pos-bad">98</span></td>
+            <td><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="width:8%"></div></div></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ TOPIC PLAN ============ -->
+  <section>
+    <div class="section-head">
+      <h2>Content plan — what to write next</h2>
+      <span class="section-note">Ordered by how close they are to capturing existing impressions</span>
+    </div>
+
+    <div class="tier-label tier-1">Tier 1 — direct hits on existing impressions</div>
+
+    <div class="topic-card t1">
+      <div class="topic-title">Immersion Language Learning: The Complete Guide</div>
+      <div class="topic-meta">Targets: <b>immersion language learning</b> (9 impr, pos 69) + <b>immersion learning</b> (6 impr, pos 65)</div>
+      <div class="topic-why">Make this your pillar post. Consolidate your existing "what is the immersion method" content here, expand to 1,200+ words, and use this exact phrase in the H1.</div>
+    </div>
+
+    <div class="topic-card t1">
+      <div class="topic-title">Is Immersion the Best Way to Learn a Language?</div>
+      <div class="topic-meta">Targets: exact-match query (1 impr, pos 76)</div>
+      <div class="topic-why">Comparison/decision framing — answer the question directly in the first 100 words for snippet capture.</div>
+    </div>
+
+    <div class="topic-card t1">
+      <div class="topic-title">The Mass Immersion Approach Explained (And How to Start)</div>
+      <div class="topic-meta">Targets: <b>mass immersion approach</b> (1 impr, pos 48 — closest to ranking)</div>
+      <div class="topic-why">This term is already your best-positioned non-brand query. A focused post here has the shortest path to page 1.</div>
+    </div>
+
+    <div class="topic-card t1">
+      <div class="topic-title">Immersion vs. Traditional Methods: What's the Difference?</div>
+      <div class="topic-meta">Builds on: <b>/blog/why-fluly-beats-traditional-apps</b> (33 impr, pos 7.67 — already near page 1)</div>
+      <div class="topic-why">This page is your closest near-miss. A companion post + internal links between the two could push both up.</div>
+    </div>
+
+    <div class="tier-label tier-2">Tier 2 — adjacent intent, same audience</div>
+
+    <div class="topic-card t2">
+      <div class="topic-title">How Long Does It Take to Learn a Language Through Immersion?</div>
+      <div class="topic-meta">Long-tail · zero current impressions</div>
+      <div class="topic-why">Natural follow-up question for anyone reading your pillar post — link to it from there.</div>
+    </div>
+
+    <div class="topic-card t2">
+      <div class="topic-title">Passive vs Active Immersion: Which Works Better?</div>
+      <div class="topic-meta">Relates to: <b>immersion style online language learning</b> (2 impr, pos 55.5)</div>
+      <div class="topic-why">Analytical framing matches the style of queries you're already getting impressions for.</div>
+    </div>
+
+    <div class="topic-card t2">
+      <div class="topic-title">Can You Learn a Language Through Immersion Without Moving Abroad?</div>
+      <div class="topic-meta">Addresses the #1 objection to "immersion"</div>
+      <div class="topic-why">High-intent — people searching this are close to trying an app like yours.</div>
+    </div>
+
+    <div class="topic-card t2">
+      <div class="topic-title">Best Immersion Techniques for Beginners</div>
+      <div class="topic-meta">Relates to: <b>how to learn languages faster</b> (1 impr, pos 76)</div>
+      <div class="topic-why">Captures beginner-intent traffic and pairs naturally with your spaced repetition post.</div>
+    </div>
+
+    <div class="tier-label" style="color:var(--ink-dim)">Tier 3 — strengthen existing posts (topical authority)</div>
+
+    <div class="topic-card t3">
+      <div class="topic-title">Comprehensible Input: What It Is and Why It Matters</div>
+      <div class="topic-meta">New supporting topic</div>
+      <div class="topic-why">Builds topical cluster around immersion theory — link from and to the pillar post.</div>
+    </div>
+
+    <div class="topic-card t3">
+      <div class="topic-title">Why Spaced Repetition Complements Immersion Learning</div>
+      <div class="topic-meta">Existing: <b>/blog/importance-of-spaced-repetition</b> (pos 10 — your 2nd best blog post)</div>
+      <div class="topic-why">Already close to page 1. Expand and interlink with the immersion pillar to pass authority both ways.</div>
+    </div>
+
+    <div class="topic-card t3">
+      <div class="topic-title">Why Textbooks Don't Work (and What to Do Instead)</div>
+      <div class="topic-meta">Existing: <b>/blog/text-books-do-not-work-to-learn-a-language</b> (pos 62)</div>
+      <div class="topic-why">Strengthen depth and add internal links — currently indexed but under-supported.</div>
+    </div>
+
+    <div class="topic-card t3">
+      <div class="topic-title">5 Ways to Learn Faster</div>
+      <div class="topic-meta">Existing: <b>/blog/5-ways-to-learn-faster</b> (pos 76)</div>
+      <div class="topic-why">Needs more depth and links from homepage/learn-more to climb out of page 8.</div>
+    </div>
+  </section>
+
+  <footer>fluly.io · Search Console · Web search · Last 3 months · Generated Jun 13, 2026</footer>
+
+</div>
+</body>
+</html>

@@ -10,8 +10,12 @@
         ],
         "app": [
           "fluly-app"
+        ],
+        "fluuuly": [
+          "fluuuly"
         ]
       }
     }
-  }
+  },
+  "etags": {}
 }
